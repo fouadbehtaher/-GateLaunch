@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GateLaunch | Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/icon-shield.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="admin" class="rtl">
+    <div class="ambient"></div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span class="brand-text">GateLaunch</span>
+      </div>
+      <nav class="top-links">
+        <a href="about.html">About</a>
+        <a href="landing.html" class="lang-inline"><span class="ar">الرئيسية</span><span class="en">Landing</span></a>
+        <a href="index.html" class="lang-inline"><span class="ar">الدخول</span><span class="en">Login</span></a>
+        <a href="dashboard.html" class="lang-inline"><span class="ar">لوحة المستخدم</span><span class="en">Dashboard</span></a>
+        <a href="help.html" class="lang-inline"><span class="ar">المساعدة</span><span class="en">Help</span></a>
+        <a href="#tickets" class="lang-inline"><span class="ar">التذاكر</span><span class="en">Tickets</span></a>
+        <a href="#access-requests" class="lang-inline"><span class="ar">طلبات الوصول</span><span class="en">Access Requests</span></a>
+        <a href="#notifications" class="lang-inline"><span class="ar">التنبيهات</span><span class="en">Notifications</span></a>
+        <a href="#ai-sync" class="lang-inline"><span class="ar">المزامنة الذكية</span><span class="en">AI Sync</span></a>
+        <a href="#integrations" data-admin-only class="lang-inline"><span class="ar">التكاملات</span><span class="en">Integrations</span></a>
+        <a href="#storage" data-admin-only class="lang-inline"><span class="ar">التخزين</span><span class="en">Storage</span></a>
+        <a href="#performance" data-admin-only class="lang-inline"><span class="ar">الأداء</span><span class="en">Performance</span></a>
+        <a href="#orders" class="lang-inline"><span class="ar">طلبات الشحن</span><span class="en">Game Orders</span></a>
+        <a href="#users" data-admin-only class="lang-inline"><span class="ar">المستخدمون</span><span class="en">Users</span></a>
+      </nav>
+      <div class="top-actions">
+        <button class="outline-btn" type="button" data-action="toggle-dir">
+          <span class="lang-inline"><span class="ar">عربي</span><span class="en">English</span></span>
+        </button>
+        <span class="status-pill lang-inline"><span class="ar">التنبيهات:</span><span class="en">Notifications:</span> <strong id="admin-notification-badge">0</strong></span>
+        <div class="user-chip">
+          <span class="avatar">AD</span>
+          <div>
+            <p class="user-name lang-inline"><span class="ar">مكتب الإدارة</span><span class="en">Admin Desk</span></p>
+            <p class="user-role lang-inline"><span class="ar">مشرف النظام</span><span class="en">System Admin</span></p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section reveal page-intro">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">لوحة إدارة منظمة</span><span class="en">Structured Admin Workspace</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">تسلسل واضح: التذاكر ثم الطلبات ثم الإيصالات ثم حالة تشغيل المنصة.</span>
+          <span class="en">Clear sequence: tickets, orders, receipts, then platform operations health.</span>
+        </p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3 class="lang-inline"><span class="ar">1) مراجعة قائمة الانتظار</span><span class="en">1) Review Queue</span></h3>
+          <p class="muted lang-block">
+            <span class="ar">ابدأ بالتذاكر المفتوحة وطلبات الخدمة المعلقة.</span>
+            <span class="en">Start with open tickets and pending service requests.</span>
+          </p>
+        </article>
+        <article class="feature-card">
+          <h3 class="lang-inline"><span class="ar">2) التحقق من المدفوعات</span><span class="en">2) Verify Payments</span></h3>
+          <p class="muted lang-block">
+            <span class="ar">راجع الإيصالات قبل اعتماد الطلبات المرتبطة بها.</span>
+            <span class="en">Validate receipts before approving related orders.</span>
+          </p>
+        </article>
+        <article class="feature-card">
+          <h3 class="lang-inline"><span class="ar">3) مراقبة النظام</span><span class="en">3) Monitor System</span></h3>
+          <p class="muted lang-block">
+            <span class="ar">تابع الأداء والتخزين والتكاملات بشكل مستمر.</span>
+            <span class="en">Track performance, storage, and integrations continuously.</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal section-nav-wrap">
+      <div class="flow-nav">
+        <a href="#tickets" class="lang-inline"><span class="ar">التذاكر</span><span class="en">Tickets</span></a>
+        <a href="#access-requests" class="lang-inline"><span class="ar">الوصول</span><span class="en">Access</span></a>
+        <a href="#orders" class="lang-inline"><span class="ar">الطلبات</span><span class="en">Orders</span></a>
+        <a href="#payment-receipts" class="lang-inline"><span class="ar">الإيصالات</span><span class="en">Receipts</span></a>
+        <a href="#notifications" class="lang-inline"><span class="ar">التنبيهات</span><span class="en">Notifications</span></a>
+        <a href="#integrations" class="lang-inline"><span class="ar">التكاملات</span><span class="en">Integrations</span></a>
+        <a href="#storage" class="lang-inline"><span class="ar">التخزين</span><span class="en">Storage</span></a>
+        <a href="#performance" class="lang-inline"><span class="ar">الأداء</span><span class="en">Performance</span></a>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">نظرة عامة</span><span class="en">Overview</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">مراقبة عمليات الدعم وطلبات شحن الألعاب.</span>
+          <span class="en">Monitor support and game top-up operations.</span>
+        </p>
+        <div class="order-actions range-filter">
+          <button class="status-btn active" type="button" data-admin-range="all">
+            <span class="lang-inline"><span class="ar">الكل</span><span class="en">All</span></span>
+          </button>
+          <button class="status-btn" type="button" data-admin-range="today">
+            <span class="lang-inline"><span class="ar">اليوم</span><span class="en">Today</span></span>
+          </button>
+          <button class="status-btn" type="button" data-admin-range="7d">7d</button>
+          <button class="status-btn" type="button" data-admin-range="30d">30d</button>
+          <button class="status-btn" type="button" id="admin-kpi-range-reset">
+            <span class="lang-inline"><span class="ar">إعادة ضبط</span><span class="en">Reset</span></span>
+          </button>
+          <span id="admin-kpi-range-note" class="muted micro">
+            <span class="lang-inline"><span class="ar">النطاق: كل المدة</span><span class="en">Range: All time</span></span>
+          </span>
+        </div>
+      </div>
+      <div class="feature-card">
+        <img src="assets/admin-illustration.svg" alt="Admin operations illustration" class="wide-image" />
+      </div>
+      <div class="metric-grid">
+        <div class="metric-card access-kpi access-kpi-approved">
+          <h3 class="lang-inline"><span class="ar">مستخدمون نشطون</span><span class="en">Active Users</span></h3>
+          <p class="price" id="admin-overview-active-users">0</p>
+          <span class="status-pill" id="admin-overview-active-note">نشط</span>
+        </div>
+        <div class="metric-card access-kpi access-kpi-pending">
+          <h3 class="lang-inline"><span class="ar">قائمة انتظار مفتوحة</span><span class="en">Open Queue</span></h3>
+          <p class="price" id="admin-overview-open-queue">0</p>
+          <span class="status-pill" id="admin-overview-open-note">نشط</span>
+        </div>
+        <div class="metric-card access-kpi access-kpi-rejected">
+          <h3 class="lang-inline"><span class="ar">حجم المدفوعات</span><span class="en">Payment Volume</span></h3>
+          <p class="price" id="admin-overview-monthly-volume">0 EGP</p>
+          <span class="status-pill" id="admin-overview-monthly-note">الشهر الحالي</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="tickets">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">قائمة التذاكر</span><span class="en">Ticket Queue</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">مراجعة تذاكر دعم المستخدمين.</span>
+          <span class="en">Review user support tickets.</span>
+        </p>
+      </div>
+      <div class="metric-grid">
+        <div class="metric-card access-kpi access-kpi-pending">
+          <h3 class="lang-inline"><span class="ar">تذاكر مفتوحة</span><span class="en">Open Tickets</span></h3>
+          <p class="price" id="admin-ticket-open">0</p>
+        </div>
+        <div class="metric-card access-kpi access-kpi-approved">
+          <h3 class="lang-inline"><span class="ar">تذاكر مغلقة</span><span class="en">Closed Tickets</span></h3>
+          <p class="price" id="admin-ticket-closed">0</p>
+        </div>
+      </div>
+      <div class="ticket-list" id="admin-ticket-list"></div>
+    </section>
+
+    <section class="section reveal" id="access-requests">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">طلبات الوصول</span><span class="en">Access Requests</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">اعتماد أو رفض طلبات الوصول إلى موارد المنصة.</span>
+          <span class="en">Approve or reject requested access to platform resources.</span>
+        </p>
+      </div>
+      <div class="metric-grid">
+        <div class="metric-card access-kpi access-kpi-pending">
+          <h3 class="lang-inline"><span class="ar">معلق</span><span class="en">Pending</span></h3>
+          <p class="price" id="admin-access-pending">0</p>
+        </div>
+        <div class="metric-card access-kpi access-kpi-approved">
+          <h3 class="lang-inline"><span class="ar">معتمد</span><span class="en">Approved</span></h3>
+          <p class="price" id="admin-access-approved">0</p>
+        </div>
+        <div class="metric-card access-kpi access-kpi-rejected">
+          <h3 class="lang-inline"><span class="ar">مرفوض</span><span class="en">Rejected</span></h3>
+          <p class="price" id="admin-access-rejected">0</p>
+        </div>
+      </div>
+      <div class="ticket-list" id="admin-access-request-list"></div>
+    </section>
+
+    <section class="section reveal" id="notifications">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">تنبيهات الإدارة الخلفية</span><span class="en">Backoffice Notifications</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">تنبيهات لحظية مع تفاصيل كاملة لكل حدث.</span>
+          <span class="en">Real-time style backend notifications with full event details.</span>
+        </p>
+        <button class="outline-btn" id="mark-notifications-read" type="button">
+          <span class="lang-inline"><span class="ar">تحديد الكل كمقروء</span><span class="en">Mark All As Read</span></span>
+        </button>
+      </div>
+      <div class="ticket-list" id="admin-notification-list"></div>
+    </section>
+
+    <section class="section reveal" id="integrations" data-admin-only>
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">التكاملات الخارجية</span><span class="en">External Integrations</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">حالة الاتصالات الخارجية (Telegram و n8n و Slack و Webhook) مع اختبار الإرسال.</span>
+          <span class="en">Real external connections status (Telegram, n8n, Slack, Webhook) and delivery test.</span>
+        </p>
+      </div>
+      <div class="admin-card">
+        <p id="integration-status" class="muted">
+          <span class="lang-inline"><span class="ar">جارٍ التحميل...</span><span class="en">loading...</span></span>
+        </p>
+        <div class="order-actions">
+          <button id="integration-test-btn" class="primary-btn lang-inline" type="button"><span class="ar">تشغيل اختبار التكامل</span><span class="en">Run Integration Test</span></button>
+          <span id="integration-test-result" class="muted"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="storage" data-admin-only>
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">حالة التخزين</span><span class="en">Storage Health</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">حالة قاعدة البيانات، أمان النسخ الاحتياطي، وعدد السجلات.</span>
+          <span class="en">Database status, backup safety, and record counts.</span>
+        </p>
+      </div>
+      <div class="admin-card">
+        <p id="storage-health-status" class="muted">
+          <span class="lang-inline"><span class="ar">جارٍ تحميل حالة التخزين...</span><span class="en">Loading storage health...</span></span>
+        </p>
+        <div class="ai-mini-grid">
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">المحرك</span><span class="en">Driver</span></h3>
+            <p class="price" id="storage-driver">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">الحجم</span><span class="en">Size</span></h3>
+            <p class="price" id="storage-size">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">النسخ الاحتياطية</span><span class="en">Backups</span></h3>
+            <p class="price" id="storage-backup-state">-</p>
+          </div>
+        </div>
+        <div class="order-actions">
+          <button id="storage-refresh-btn" class="outline-btn lang-inline" type="button"><span class="ar">تحديث الحالة</span><span class="en">Refresh Health</span></button>
+          <button id="storage-backup-btn" class="primary-btn lang-inline" type="button"><span class="ar">تشغيل نسخة احتياطية الآن</span><span class="en">Run Backup Now</span></button>
+          <span id="storage-backup-result" class="muted"></span>
+        </div>
+        <div id="storage-records" class="notification-details"></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="performance" data-admin-only>
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">مراقب الأداء</span><span class="en">Performance Monitor</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">صحة API، زمن الاستجابة، معدل النجاح، وآخر الإخفاقات.</span>
+          <span class="en">Live API health, latency, success rate, and recent failures.</span>
+        </p>
+      </div>
+      <div class="admin-card">
+        <p id="perf-status" class="muted">
+          <span class="lang-inline"><span class="ar">جارٍ تحميل مؤشرات الأداء...</span><span class="en">Loading performance metrics...</span></span>
+        </p>
+        <div class="ai-mini-grid">
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">نجاح 5 دقائق</span><span class="en">5m Success</span></h3>
+            <p class="price" id="perf-success-5m">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">متوسط زمن 5 دقائق</span><span class="en">5m Avg Latency</span></h3>
+            <p class="price" id="perf-latency-5m">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">P95 ساعة واحدة</span><span class="en">1h P95</span></h3>
+            <p class="price" id="perf-p95-1h">-</p>
+          </div>
+        </div>
+        <div class="order-actions">
+          <button id="perf-refresh-btn" class="outline-btn lang-inline" type="button"><span class="ar">تحديث المؤشرات</span><span class="en">Refresh Metrics</span></button>
+          <span id="perf-samples" class="muted"></span>
+        </div>
+        <div id="perf-top-paths" class="notification-details"></div>
+        <div id="perf-recent-errors" class="notification-details"></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="ai-sync">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">مزامنة عمليات AI</span><span class="en">AI Operations Sync</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">تحليل آلي للمخاطر، توصيات تشغيل، ومراقبة صحة العمليات.</span>
+          <span class="en">Automated risk analysis, recommendations, and operational health.</span>
+        </p>
+      </div>
+      <div class="admin-card">
+        <p id="admin-ai-status" class="muted">
+          <span class="lang-inline"><span class="ar">جارٍ تحميل حالة AI...</span><span class="en">Loading AI status...</span></span>
+        </p>
+        <div class="ai-mini-grid">
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">الصحة</span><span class="en">Health</span></h3>
+            <p class="price" id="admin-ai-health-score">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">طلبات معلقة</span><span class="en">Pending Orders</span></h3>
+            <p class="price" id="admin-ai-pending-orders">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">تذاكر مفتوحة</span><span class="en">Open Tickets</span></h3>
+            <p class="price" id="admin-ai-open-tickets">-</p>
+          </div>
+        </div>
+        <div class="order-actions">
+          <button id="admin-ai-refresh-btn" class="outline-btn lang-inline" type="button"><span class="ar">تحديث التحليلات</span><span class="en">Refresh Insights</span></button>
+          <button id="admin-ai-sync-btn" class="primary-btn lang-inline" type="button" data-admin-only><span class="ar">تشغيل مزامنة AI الآن</span><span class="en">Run AI Sync Now</span></button>
+          <span id="admin-ai-sync-result" class="muted"></span>
+        </div>
+        <ul id="admin-ai-recommendations" class="ai-list"></ul>
+      </div>
+      <div class="admin-card">
+        <h3 class="lang-inline"><span class="ar">مساعد AI (n8n)</span><span class="en">AI Assistant (n8n)</span></h3>
+        <div class="chat-window" id="admin-ai-chat-window">
+          <div class="chat-message agent">
+            <p class="lang-block">
+              <span class="ar">المساعد التشغيلي جاهز. اسأل عن المخاطر أو الإجراءات أو مشكلات الدفع.</span>
+              <span class="en">Operations assistant ready. Ask for risk summary, backlog actions, or payment anomalies.</span>
+            </p>
+            <span class="lang-inline"><span class="ar">عمليات AI</span><span class="en">AI Ops</span></span>
+          </div>
+        </div>
+        <form class="chat-input" id="admin-ai-chat-form">
+          <input id="admin-ai-chat-text" type="text" placeholder="اسأل AI عن العمليات / Ask AI about operations" required />
+          <button class="primary-btn lang-inline" type="submit"><span class="ar">إرسال</span><span class="en">Send</span></button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section reveal" id="orders">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">طلبات شحن الألعاب</span><span class="en">Game Top-Up Orders</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">اعتماد أو رفض طلبات الشحن بعد التحقق من الدفع.</span>
+          <span class="en">Approve or reject recharge requests after payment verification.</span>
+        </p>
+      </div>
+      <div class="metric-grid">
+        <div class="metric-card access-kpi access-kpi-pending">
+          <h3 class="lang-inline"><span class="ar">طلبات معلقة</span><span class="en">Pending Orders</span></h3>
+          <p class="price" id="admin-order-pending">0</p>
+        </div>
+        <div class="metric-card access-kpi access-kpi-approved">
+          <h3 class="lang-inline"><span class="ar">طلبات معتمدة</span><span class="en">Approved Orders</span></h3>
+          <p class="price" id="admin-order-approved">0</p>
+        </div>
+        <div class="metric-card access-kpi access-kpi-rejected">
+          <h3 class="lang-inline"><span class="ar">طلبات مرفوضة</span><span class="en">Rejected Orders</span></h3>
+          <p class="price" id="admin-order-rejected">0</p>
+        </div>
+      </div>
+      <div class="ticket-list" id="admin-order-list"></div>
+    </section>
+
+    <section class="section reveal" id="payment-receipts">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">إيصالات الدفع</span><span class="en">Payment Receipts</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">جميع إثباتات الدفع المرسلة من نماذج الدفع وطلبات المحافظ.</span>
+          <span class="en">All payment proofs submitted from payment forms and wallet requests.</span>
+        </p>
+      </div>
+      <div class="ticket-list" id="admin-receipt-list"></div>
+    </section>
+
+    <section class="section reveal" id="users" data-admin-only>
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">المستخدمون</span><span class="en">Users</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">نظرة سريعة على الحسابات.</span>
+          <span class="en">Quick account overview.</span>
+        </p>
+      </div>
+      <div class="admin-card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="lang-inline"><span class="ar">الاسم</span><span class="en">Name</span></th>
+              <th class="lang-inline"><span class="ar">الخطة</span><span class="en">Plan</span></th>
+              <th class="lang-inline"><span class="ar">الحالة</span><span class="en">Status</span></th>
+              <th class="lang-inline"><span class="ar">الدعم</span><span class="en">Support</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="lang-inline"><span class="ar">مها علي</span><span class="en">Maha Ali</span></td>
+              <td class="lang-inline"><span class="ar">برو</span><span class="en">Pro</span></td>
+              <td class="lang-inline"><span class="ar">نشط</span><span class="en">Active</span></td>
+              <td class="lang-inline"><span class="ar">تذكرة مفتوحة</span><span class="en">Open ticket</span></td>
+            </tr>
+            <tr>
+              <td class="lang-inline"><span class="ar">عمر ن.</span><span class="en">Omar N.</span></td>
+              <td class="lang-inline"><span class="ar">أساسية</span><span class="en">Starter</span></td>
+              <td class="lang-inline"><span class="ar">نشط</span><span class="en">Active</span></td>
+              <td class="lang-inline"><span class="ar">لا يوجد</span><span class="en">None</span></td>
+            </tr>
+            <tr>
+              <td class="lang-inline"><span class="ar">رنا ف.</span><span class="en">Rana F.</span></td>
+              <td class="lang-inline"><span class="ar">مؤسسات</span><span class="en">Enterprise</span></td>
+              <td class="lang-inline"><span class="ar">متابعة</span><span class="en">Follow-up</span></td>
+              <td class="lang-inline"><span class="ar">مجدول</span><span class="en">Scheduled</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="modal" id="proof-modal" aria-hidden="true">
+      <div class="modal-card proof-modal-card">
+        <div class="order-actions">
+          <button id="proof-modal-close" class="ghost-btn lang-inline" type="button"><span class="ar">إغلاق</span><span class="en">Close</span></button>
+        </div>
+        <img id="proof-modal-image" class="proof-modal-image" alt="Payment proof preview" />
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/lucide@0.563.0/dist/umd/lucide.js" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "gatelauch-graduation-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check app.js && node --check db.js",
+    "smoke": "powershell -ExecutionPolicy Bypass -File .\\smoke-test.ps1"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "express": "^4.19.2"
+  }
+}
