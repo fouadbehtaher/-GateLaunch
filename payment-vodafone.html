@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GateLaunch | Vodafone Cash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/icon-shield.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body
+    data-page="wallet-payment"
+    data-wallet="vodafone_cash"
+    data-receiver="01143813016"
+    data-min="70"
+    data-max="2000"
+    data-wallet-label="Vodafone Cash"
+    data-wallet-logo="assets/wallet-vodafone.svg"
+    class="rtl"
+  >
+    <div class="ambient"></div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span class="brand-text">GateLaunch</span>
+      </div>
+      <nav class="top-links">
+        <a href="landing.html" class="lang-inline"><span class="ar">الرئيسية</span><span class="en">Landing</span></a>
+        <a href="about.html" class="lang-inline"><span class="ar">من نحن</span><span class="en">About</span></a>
+        <a href="help.html" class="lang-inline"><span class="ar">المساعدة</span><span class="en">Help</span></a>
+        <a href="dashboard.html#payments" class="lang-inline"><span class="ar">الدفع</span><span class="en">Payments</span></a>
+      </nav>
+      <div class="top-actions">
+        <button class="outline-btn" type="button" data-action="toggle-dir">
+          <span class="lang-inline"><span class="ar">عربي</span><span class="en">English</span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="section reveal section-nav-wrap">
+      <div class="flow-nav">
+        <a href="payment-instapay.html">InstaPay</a>
+        <a href="payment-orange.html">Orange</a>
+        <a href="payment-etisalat.html">Etisalat</a>
+        <a href="payment-fawry.html">Fawry</a>
+      </div>
+    </section>
+
+    <main class="wallet-page-shell">
+      <section class="wallet-page-card">
+        <a class="ghost-btn wallet-back-btn" href="dashboard.html">
+          <span class="lang-inline"><span class="ar">رجوع</span><span class="en">Back</span></span>
+        </a>
+
+        <div class="wallet-page-head">
+          <img src="assets/wallet-vodafone.svg" alt="Vodafone Cash" class="wallet-page-logo" />
+        </div>
+
+        <p class="payment-green-notice lang-block">
+          <span class="ar">قبل إنشاء الطلب، حوّل المبلغ خلال 10 دقائق باستخدام بيانات الدفع التالية.</span>
+          <span class="en">Before creating a request, transfer funds within 10 minutes using the payment details below.</span>
+        </p>
+
+        <img src="assets/illus-workflow.svg" alt="Payment workflow illustration" class="wide-image" />
+
+        <p class="wallet-page-line lang-inline">
+          <span class="ar">رقم فودافون كاش:</span><span class="en">Vodafone Cash number:</span> <strong>01143813016</strong>
+        </p>
+        <p class="muted micro lang-block">
+          <span class="ar">المبلغ المسموح: من 70 إلى 2000 جنيه. ارفع صورة إثبات الدفع قبل التأكيد.</span>
+          <span class="en">Allowed amount: 70 to 2,000 EGP. Upload proof image before confirm.</span>
+        </p>
+
+        <form id="wallet-payment-form" class="panel-form">
+          <label for="wallet-amount" class="lang-inline"><span class="ar">المبلغ</span><span class="en">Amount</span></label>
+          <input id="wallet-amount" type="number" min="70" max="2000" step="1" value="300" required />
+
+          <div class="quick-amounts"></div>
+
+          <label for="wallet-sender" class="lang-inline"><span class="ar">رقم المرسل</span><span class="en">Sender number</span></label>
+          <input id="wallet-sender" type="text" placeholder="010xxxxxxxx" required />
+
+          <label for="wallet-reference" class="lang-inline"><span class="ar">رقم العملية</span><span class="en">Transaction reference</span></label>
+          <input id="wallet-reference" type="text" placeholder="Transaction ID" required />
+
+          <label for="wallet-proof-image" class="lang-inline"><span class="ar">صورة إثبات الدفع</span><span class="en">Payment proof image</span></label>
+          <input id="wallet-proof-image" type="file" accept="image/*" required />
+          <img id="wallet-proof-preview" class="proof-preview" alt="Payment proof preview" />
+
+          <button class="primary-btn payment-confirm-btn" type="submit">
+            <span class="lang-inline"><span class="ar">تأكيد</span><span class="en">Confirm</span></span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-title">GateLaunch</p>
+          <p class="muted footer-copy lang-block">
+            <span class="ar">دفع بإثبات + متابعة حالة واضحة.</span>
+            <span class="en">Proof-based payments + clear tracking.</span>
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="about.html" class="lang-inline"><span class="ar">من نحن</span><span class="en">About</span></a>
+          <a href="dashboard.html#game-charge" class="lang-inline"><span class="ar">شحن</span><span class="en">Top-up</span></a>
+          <a href="dashboard.html#payments" class="lang-inline"><span class="ar">الدفع</span><span class="en">Payments</span></a>
+          <a href="help.html" class="lang-inline"><span class="ar">المساعدة</span><span class="en">Help</span></a>
+        </div>
+        <div>
+          <p class="footer-title lang-inline"><span class="ar">تواصل</span><span class="en">Contact</span></p>
+          <p class="muted footer-copy">S23510848EG@STD.AOU.EDU.EG</p>
+          <p class="muted footer-copy">InstaPay: 01147794004 | Wallets: 01143813016</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/lucide@0.563.0/dist/umd/lucide.js" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

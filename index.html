@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GateLaunch | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/icon-shield.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="login" class="rtl">
+    <div class="ambient"></div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span class="brand-text">GateLaunch</span>
+      </div>
+      <nav class="top-links">
+        <a href="landing.html" class="lang-inline"><span class="ar">الرئيسية</span><span class="en">Landing</span></a>
+        <a href="about.html" class="lang-inline"><span class="ar">من نحن</span><span class="en">About</span></a>
+        <a href="help.html" class="lang-inline"><span class="ar">المساعدة</span><span class="en">Help</span></a>
+        <a href="dashboard.html" class="lang-inline"><span class="ar">لوحة المستخدم</span><span class="en">Dashboard</span></a>
+        <a href="admin.html" id="index-admin-link" data-staff-only class="lang-inline" style="display: none;"><span class="ar">الادارة</span><span class="en">Admin</span></a>
+        <a href="#support" class="lang-inline"><span class="ar">الدعم</span><span class="en">Support</span></a>
+      </nav>
+      <div class="top-actions">
+        <button class="outline-btn" type="button" data-action="toggle-dir">
+          <span class="lang-inline">
+            <span class="ar">عربي</span><span class="en">English</span>
+          </span>
+        </button>
+        <button class="ghost-btn" type="button" data-open="signup">
+          <span class="btn-icon" aria-hidden="true"><i data-lucide="sparkles" class="lucide"></i></span>
+          <span class="lang-inline">
+            <span class="ar">طلب تجربة</span><span class="en">Request Demo</span>
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <section class="section reveal page-intro">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">تسجيل الدخول للمنصة</span><span class="en">Platform Login</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">سجّل الدخول ثم انتقل مباشرة إلى لوحة المستخدم لإدارة الطلبات والدفع والدعم.</span>
+          <span class="en">Sign in and move directly to dashboard for requests, payments, and support.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section reveal section-nav-wrap">
+      <div class="flow-nav">
+        <a href="landing.html" class="lang-inline"><span class="ar">الرئيسية</span><span class="en">Landing</span></a>
+        <a href="#features" class="lang-inline"><span class="ar">المميزات</span><span class="en">Features</span></a>
+        <a href="#support" class="lang-inline"><span class="ar">الدعم</span><span class="en">Support</span></a>
+        <a href="dashboard.html" class="lang-inline"><span class="ar">لوحة المستخدم</span><span class="en">Dashboard</span></a>
+      </div>
+    </section>
+
+    <main class="login-grid">
+      <section class="hero reveal">
+        <p class="eyebrow lang-inline">
+          <span class="ar">مشروع تخرج</span><span class="en">Graduation Project</span>
+        </p>
+        <h1 class="lang-block">
+          <span class="ar">وصول آمن وخدمات دعم تقنية بخطوات واضحة.</span><span class="en">Secure access to research hubs with guided support.</span>
+        </h1>
+        <p class="hero-copy lang-block">
+          <span class="ar">
+            GateLaunch منصة تجريبية لإدارة الدخول، الدفع، وطلبات الدعم الفني عند الحاجة.
+          </span><span class="en">
+            GateLaunch is a concept platform for auth, payments, and on-demand
+            engineering help.
+          </span>
+        </p>
+        <div class="hero-tags" id="features">
+          <span class="lang-inline"><span class="ar">التحكم في الوصول</span><span class="en">Access Control</span></span>
+          <span class="lang-inline"><span class="ar">مسار الدفع</span><span class="en">Payment Flow</span></span>
+          <span class="lang-inline"><span class="ar">مركز الدعم</span><span class="en">Support Desk</span></span>
+        </div>
+        <div class="hero-card">
+          <h3 class="lang-inline">
+            <span class="ar">ما يمكنك تجربته</span><span class="en">What you can demo</span>
+          </h3>
+          <ul>
+            <li class="lang-inline">
+              <span class="ar">تسجيل الدخول وإنشاء حساب</span><span class="en">Login and account creation</span>
+            </li>
+            <li class="lang-inline">
+              <span class="ar">لوحة مستخدم مع الترقية والدفع</span><span class="en">Dashboard with payment upgrade</span>
+            </li>
+            <li class="lang-inline">
+              <span class="ar">دردشة دعم ومتابعة التذاكر</span><span class="en">Support chat and ticket summary</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-card" data-tilt style="margin-top: 18px;">
+          <h3 class="lang-inline"><span class="ar">مسار الاستخدام</span><span class="en">Platform flow</span></h3>
+          <p class="muted lang-block">
+            <span class="ar">طلب ثم دفع بإثبات ثم متابعة حالة واضحة.</span>
+            <span class="en">Request, pay with proof, then track status.</span>
+          </p>
+          <img src="assets/illus-workflow.svg" alt="GateLaunch workflow preview" class="wide-image" />
+        </div>
+      </section>
+
+      <section class="login-panel reveal" aria-labelledby="login-title">
+        <div class="panel-header">
+          <h2 id="login-title" class="lang-inline">
+            <span class="ar">أهلا بعودتك</span><span class="en">Welcome back</span>
+          </h2>
+          <p class="lang-block">
+            <span class="ar">سجل الدخول للوصول إلى مساحة عملك.</span><span class="en">Sign in to access your workspace.</span>
+          </p>
+        </div>
+        <form id="login-form" class="panel-form">
+          <label for="email" class="lang-inline">
+            <span class="ar">Email</span><span class="en">Email</span>
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@university.edu"
+            required
+          />
+          <label for="password" class="lang-inline">
+            <span class="ar">Password</span><span class="en">Password</span>
+          </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="At least 10 chars (Aa1...)"
+            required
+          />
+          <button class="primary-btn" type="submit">
+            <span class="lang-inline">
+              <span class="ar">Login</span><span class="en">Login</span>
+            </span>
+          </button>
+          <div class="divider">
+            <span class="lang-inline">
+              <span class="ar">or</span><span class="en">or</span>
+            </span>
+          </div>
+          <button class="outline-btn" type="button" data-open="signup">
+            <span class="lang-inline">
+              <span class="ar">Create Account</span><span class="en">Create Account</span>
+            </span>
+          </button>
+        </form>
+        <div class="panel-footer">
+          <p class="lang-inline">
+            <span class="ar">مستخدم جديد؟</span><span class="en">New here?</span>
+            <button class="ghost-btn" type="button" data-open="signup">
+              <span class="lang-inline">
+                <span class="ar">إنشاء حساب</span><span class="en">Create an account</span>
+              </span>
+            </button>
+          </p>
+          <p class="micro lang-block" id="trust">
+            <span class="ar">واجهة تجريبية فقط، وليست نظام مصادقة إنتاجي.</span><span class="en">UI demo only. No real authentication.</span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <section class="support-strip" id="support">
+      <div>
+        <h3 class="lang-inline">
+          <span class="ar">تحتاج مساعدة تقنية؟</span><span class="en">Need technical help?</span>
+        </h3>
+        <p class="lang-block">
+          <span class="ar">أرسل طلبك وسيتم تحويله مباشرة إلى مهندس دعم.</span><span class="en">Submit a request and get routed to an engineer.</span>
+        </p>
+      </div>
+      <a class="primary-btn" href="dashboard.html#support">
+        <span class="lang-inline">
+          <span class="ar">فتح بوابة الدعم</span><span class="en">Open Support Portal</span>
+        </span>
+      </a>
+    </section>
+
+    <div class="modal" id="signup-modal" aria-hidden="true">
+      <div class="modal-card">
+        <h3 class="lang-inline"><span class="ar">Create account</span><span class="en">Create account</span></h3>
+        <p class="lang-block">
+          <span class="ar">Enter details to create a demo account.</span><span class="en">Enter details to create a demo account.</span>
+        </p>
+        <form class="panel-form" id="signup-form">
+          <label for="signup-email" class="lang-inline">
+            <span class="ar">Email</span><span class="en">Email</span>
+          </label>
+          <input
+            id="signup-email"
+            name="signup-email"
+            type="email"
+            placeholder="you@university.edu"
+            required
+          />
+          <label for="signup-password" class="lang-inline">
+            <span class="ar">Password</span><span class="en">Password</span>
+          </label>
+          <input
+            id="signup-password"
+            name="signup-password"
+            type="password"
+            placeholder="At least 10 chars (Aa1...)"
+            required
+          />
+          <button class="primary-btn" type="submit">
+            <span class="lang-inline"><span class="ar">Create</span><span class="en">Create</span></span>
+          </button>
+          <button class="ghost-btn" type="button" data-close>
+            <span class="lang-inline"><span class="ar">Cancel</span><span class="en">Cancel</span></span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-title">GateLaunch</p>
+          <p class="muted footer-copy lang-block">
+            <span class="ar">منصة دعم وشحن ألعاب مع تتبع وإثبات دفع.</span>
+            <span class="en">Support + game top-up platform with tracking and proof flows.</span>
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="about.html" class="lang-inline"><span class="ar">من نحن</span><span class="en">About</span></a>
+          <a href="landing.html#pricing" class="lang-inline"><span class="ar">الاسعار</span><span class="en">Pricing</span></a>
+          <a href="dashboard.html#payments" class="lang-inline"><span class="ar">الدفع</span><span class="en">Payments</span></a>
+          <a href="help.html" class="lang-inline"><span class="ar">المساعدة</span><span class="en">Help</span></a>
+        </div>
+        <div>
+          <p class="footer-title lang-inline"><span class="ar">تواصل</span><span class="en">Contact</span></p>
+          <p class="muted footer-copy">S23510848EG@STD.AOU.EDU.EG</p>
+          <p class="muted footer-copy">InstaPay: 01147794004 | Wallets: 01143813016</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/lucide@0.563.0/dist/umd/lucide.js" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+
+

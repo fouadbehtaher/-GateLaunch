@@ -1,0 +1,863 @@
+﻿<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GateLaunch | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/icon-shield.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="dashboard" class="rtl">
+    <div class="ambient"></div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span class="brand-text">GateLaunch</span>
+      </div>
+      <nav class="top-links">
+        <a href="landing.html" class="lang-inline"><span class="ar">الرئيسية</span><span class="en">Landing</span></a>
+        <a href="about.html" class="lang-inline"><span class="ar">من نحن</span><span class="en">About</span></a>
+        <a href="help.html" class="lang-inline"><span class="ar">المساعدة</span><span class="en">Help</span></a>
+        <a href="#access" class="lang-inline"><span class="ar">الوصول</span><span class="en">Access</span></a>
+        <a href="#payments" class="lang-inline"><span class="ar">الدفع</span><span class="en">Payments</span></a>
+        <a href="#ai-center" id="dashboard-ai-link" class="lang-inline" style="display: none;"><span class="ar">الذكاء</span><span class="en">AI Sync</span></a>
+        <a href="#support" class="lang-inline"><span class="ar">الدعم</span><span class="en">Support</span></a>
+        <a href="admin.html" id="dashboard-admin-link" data-staff-only class="lang-inline" style="display: none;"><span class="ar">الادارة</span><span class="en">Admin</span></a>
+      </nav>
+      <div class="top-actions">
+        <button class="outline-btn" type="button" data-action="toggle-dir">
+          <span class="lang-inline">
+            <span class="ar">عربي</span>
+            <span class="en">English</span>
+          </span>
+        </button>
+        <div class="user-chip">
+          <span class="avatar">MA</span>
+          <div>
+            <p class="user-name lang-inline">
+              <span class="ar">مها علي</span>
+              <span class="en">Maha Ali</span>
+            </p>
+            <p class="user-role lang-inline">
+              <span class="ar">حساب طالب</span>
+              <span class="en">Student account</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section reveal page-intro">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">لوحة استخدام مبسطة</span><span class="en">Simplified Workspace</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">المسار: طلب وصول او خدمة ثم دفع ثم متابعة الطلبات والتذاكر.</span>
+          <span class="en">Flow: request access/service, complete payment, then track orders and tickets.</span>
+        </p>
+      </div>
+      <div class="hero-layout" style="margin-top: 18px;">
+        <div class="feature-card" data-tilt>
+          <h3 class="lang-inline"><span class="ar">تجربة موثقة بإثبات</span><span class="en">Proof-based experience</span></h3>
+          <p class="muted lang-block">
+            <span class="ar">اختر اللعبة والعرض ثم أكمل الدفع وارفع إثبات الدفع داخل الطلب لمراجعة سريعة.</span>
+            <span class="en">Pick game + offer, complete payment, and upload proof inside the request for fast review.</span>
+          </p>
+          <div class="hero-cta">
+            <a class="primary-btn interactive-btn" href="#game-charge"
+              ><span class="btn-icon" aria-hidden="true"><i data-lucide="zap" class="lucide"></i></span
+              ><span class="lang-inline"><span class="ar">ابدأ الشحن</span><span class="en">Start top-up</span></span></a
+            >
+            <a class="ghost-btn interactive-btn" href="#payments"
+              ><span class="btn-icon" aria-hidden="true"><i data-lucide="wallet" class="lucide"></i></span
+              ><span class="lang-inline"><span class="ar">الدفع</span><span class="en">Payments</span></span></a
+            >
+          </div>
+        </div>
+        <div class="feature-card" data-tilt>
+          <img src="assets/illus-workflow.svg" alt="Workflow preview" class="wide-image" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal section-nav-wrap">
+      <div class="flow-nav">
+        <a href="#access" class="lang-inline"><span class="ar">الوصول</span><span class="en">Access</span></a>
+        <a href="#payments" class="lang-inline"><span class="ar">الدفع</span><span class="en">Payments</span></a>
+        <a href="#game-charge" class="lang-inline"><span class="ar">شحن الألعاب</span><span class="en">Top-Up</span></a>
+        <a href="#device-security-check" class="lang-inline"><span class="ar">التشخيص</span><span class="en">Diagnostics</span></a>
+        <a href="#support" class="lang-inline"><span class="ar">الدعم</span><span class="en">Support</span></a>
+      </div>
+    </section>
+
+    <main class="dash-grid">
+      <section class="status-card reveal">
+        <h2 class="lang-inline">
+          <span class="ar">مساحة العمل</span>
+          <span class="en">Your workspace</span>
+        </h2>
+        <p class="lang-block">
+          <span class="ar">حافظ على تفعيل الوصول لفتح المراكز المميزة.</span>
+          <span class="en">Keep access active to unlock premium hubs.</span>
+        </p>
+        <div class="progress">
+          <div class="progress-bar" id="usage-bar"></div>
+        </div>
+        <div class="status-row">
+          <span class="lang-inline">
+            <span class="ar">الخطة: الاساسية</span>
+            <span class="en">Service: Support Sessions</span>
+          </span>
+          <span class="lang-inline">
+            <span class="ar">الاستخدام: 42%</span>
+            <span class="en">Usage: 42%</span>
+          </span>
+        </div>
+        <button id="upgrade-access-btn" class="primary-btn" type="button" data-open="upgrade">
+          <span class="lang-inline">
+            <span class="ar">ترقية الوصول</span>
+            <span class="en">Upgrade access</span>
+          </span>
+        </button>
+      </section>
+
+      <section class="metric-card reveal" id="ai-center" style="display: none;">
+        <h3>AI Sync Center</h3>
+        <p id="ai-status" class="muted">Analyzing platform data...</p>
+        <div class="ai-mini-grid" id="ai-health-grid">
+          <div class="metric-card">
+            <h4>Health Score</h4>
+            <p class="price" id="ai-health-score">-</p>
+          </div>
+          <div class="metric-card">
+            <h4>Pending Orders</h4>
+            <p class="price" id="ai-pending-orders">-</p>
+          </div>
+          <div class="metric-card">
+            <h4>Open Tickets</h4>
+            <p class="price" id="ai-open-tickets">-</p>
+          </div>
+        </div>
+        <div class="admin-card">
+          <h4>AI Recommendations</h4>
+          <ul id="ai-recommendations" class="ai-list"></ul>
+          <button id="ai-refresh-btn" class="outline-btn" type="button">Refresh AI Insights</button>
+        </div>
+        <div class="admin-card">
+          <h4>AI Assistant</h4>
+          <div class="chat-window" id="ai-chat-window">
+            <div class="chat-message agent">
+              <p>Ask about payments, top-up flow, or your account status.</p>
+              <span>AI Assistant</span>
+            </div>
+          </div>
+          <form class="chat-input" id="ai-chat-form">
+            <input id="ai-chat-text" type="text" placeholder="Type your question" required />
+            <button class="primary-btn" type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="metric-card reveal" id="dashboard-analytics">
+        <h3 class="lang-inline">
+          <span class="ar">التحليلات</span>
+          <span class="en">Analytics</span>
+        </h3>
+        <div class="metric-grid">
+          <div class="metric-card">
+            <h4 class="lang-inline"><span class="ar">جلسات هذا الاسبوع</span><span class="en">Weekly sessions</span></h4>
+            <p class="price">128</p>
+          </div>
+          <div class="metric-card">
+            <h4 class="lang-inline"><span class="ar">زمن الاستجابة</span><span class="en">Response time</span></h4>
+            <p class="price">9m</p>
+          </div>
+          <div class="metric-card">
+            <h4 class="lang-inline"><span class="ar">الدعم النشط</span><span class="en">Active tickets</span></h4>
+            <p class="price">6</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="access-card reveal" id="access">
+        <h3 class="lang-inline">
+          <span class="ar">التحكم في الوصول</span>
+          <span class="en">Access control</span>
+        </h3>
+        <p class="muted lang-block">
+          <span class="ar">الوصول مخصص لمصادر قانونية فقط. لا توجد شبكة فعلية.</span>
+          <span class="en">Designed for vetted legal resources. No real network.</span>
+        </p>
+        <div class="access-summary">
+          <div class="metric-card">
+            <h4 class="lang-inline"><span class="ar">طلبات قيد المراجعة</span><span class="en">Pending requests</span></h4>
+            <p class="price" id="access-pending-count">0</p>
+          </div>
+          <div class="metric-card">
+            <h4 class="lang-inline"><span class="ar">طلبات معتمدة</span><span class="en">Approved</span></h4>
+            <p class="price" id="access-approved-count">0</p>
+          </div>
+          <div class="metric-card">
+            <h4 class="lang-inline"><span class="ar">اخر تحديث</span><span class="en">Last update</span></h4>
+            <p id="access-last-updated" class="muted">-</p>
+          </div>
+        </div>
+        <div class="access-list">
+          <div class="access-item" data-access-resource="research_vault" data-access-name="Research Vault">
+            <div>
+              <h4 class="lang-inline">
+                <span class="ar">خزنة الابحاث</span>
+                <span class="en">Research Vault</span>
+              </h4>
+              <p class="lang-block">
+                <span class="ar">مجلات اكاديمية وارشيفات امنة.</span>
+                <span class="en">Curated journals and safe archives.</span>
+              </p>
+              <p class="muted micro access-meta">Default SLA: 5-15 min</p>
+            </div>
+            <div class="access-actions">
+              <span class="status-pill" data-access-status>غير مطلوب</span>
+              <button class="toggle" type="button" data-access-request>
+                <span class="lang-inline"><span class="ar">طلب وصول</span><span class="en">Request access</span></span>
+              </button>
+            </div>
+          </div>
+          <div class="access-item" data-access-resource="security_lab" data-access-name="Security Lab">
+            <div>
+              <h4 class="lang-inline">
+                <span class="ar">مختبر الامن</span>
+                <span class="en">Security Lab</span>
+              </h4>
+              <p class="lang-block">
+                <span class="ar">بيئة اختبار امنية قانونية.</span>
+                <span class="en">Sandbox for legal testing.</span>
+              </p>
+              <p class="muted micro access-meta">Default SLA: 10-25 min</p>
+            </div>
+            <div class="access-actions">
+              <span class="status-pill" data-access-status>غير مطلوب</span>
+              <button class="toggle" type="button" data-access-request>
+                <span class="lang-inline"><span class="ar">طلب وصول</span><span class="en">Request access</span></span>
+              </button>
+            </div>
+          </div>
+          <div class="access-item" data-access-resource="engineering_hub" data-access-name="Engineering Hub">
+            <div>
+              <h4 class="lang-inline">
+                <span class="ar">مركز الهندسة</span>
+                <span class="en">Engineering Hub</span>
+              </h4>
+              <p class="lang-block">
+                <span class="ar">مستودعات وشيفرات جاهزة.</span>
+                <span class="en">Premium repos and templates.</span>
+              </p>
+              <p class="muted micro access-meta">Default SLA: 5-20 min</p>
+            </div>
+            <div class="access-actions">
+              <span class="status-pill" data-access-status>غير مطلوب</span>
+              <button class="toggle" type="button" data-access-request>
+                <span class="lang-inline"><span class="ar">طلب وصول</span><span class="en">Request access</span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <form class="panel-form access-request-form" id="access-request-form">
+          <h4 class="lang-inline"><span class="ar">ارسال طلب وصول مخصص</span><span class="en">Submit access request</span></h4>
+          <label for="access-resource-select" class="lang-inline"><span class="ar">المورد</span><span class="en">Resource</span></label>
+          <select id="access-resource-select" required>
+            <option value="research_vault">Research Vault</option>
+            <option value="security_lab">Security Lab</option>
+            <option value="engineering_hub">Engineering Hub</option>
+          </select>
+          <label for="access-use-case" class="lang-inline"><span class="ar">سبب الاستخدام</span><span class="en">Use case</span></label>
+          <input id="access-use-case" type="text" placeholder="Describe why you need access" required />
+          <label for="access-duration" class="lang-inline"><span class="ar">مدة الوصول</span><span class="en">Expected duration</span></label>
+          <select id="access-duration" required>
+            <option value="single_task">Single task</option>
+            <option value="1_day">1 day</option>
+            <option value="1_week">1 week</option>
+          </select>
+          <button class="primary-btn lang-inline" type="submit"><span class="ar">إرسال طلب الوصول</span><span class="en">Submit Access Request</span></button>
+          <p id="access-request-status" class="muted micro"></p>
+        </form>
+      </section>
+
+      <section class="payment-card reveal" id="payments">
+        <h3 class="lang-inline">
+          <span class="ar">مركز الدفع</span>
+          <span class="en">Payment center</span>
+        </h3>
+        <p class="muted lang-block">
+          <span class="ar">واجهة دفع تجريبية للمشروع. لا يوجد دفع حقيقي.</span>
+          <span class="en">Mock UI only. No real transactions.</span>
+        </p>
+        <div class="plan-grid">
+          <button class="plan" type="button" data-plan="starter">
+            <h4 class="lang-inline"><span class="ar">الاساسية</span><span class="en">Starter</span></h4>
+            <p class="price lang-inline"><span class="ar">مجانا</span><span class="en">Free</span></p>
+            <span class="lang-block">
+              <span class="ar">وصول اساسي + تذكرة واحدة</span>
+              <span class="en">Basic access + 1 ticket</span>
+            </span>
+          </button>
+          <button class="plan active" type="button" data-plan="pro">
+            <h4 class="lang-inline"><span class="ar">برو</span><span class="en">Pro Access</span></h4>
+            <p class="price lang-inline"><span class="ar">200 جنيه</span><span class="en">200 EGP / session</span></p>
+            <span class="lang-block">
+              <span class="ar">اولوية وصول + 5 تذاكر</span>
+              <span class="en">Applied from second session per user</span>
+            </span>
+          </button>
+          <button class="plan" type="button" data-plan="enterprise">
+            <h4 class="lang-inline"><span class="ar">مؤسسات</span><span class="en">Enterprise</span></h4>
+            <p class="price lang-inline"><span class="ar">خاص</span><span class="en">Custom</span></p>
+            <span class="lang-block">
+              <span class="ar">فريق عمل + مهندس مخصص</span>
+              <span class="en">Contact admin for enterprise arrangements</span>
+            </span>
+          </button>
+        </div>
+        <div class="payment-actions">
+          <button class="primary-btn" type="button" data-open="payment">
+            <span class="lang-inline"><span class="ar">اكمل الدفع</span><span class="en">Proceed to pay</span></span>
+          </button>
+          <button id="download-invoice-btn" class="ghost-btn" type="button">
+            <span class="lang-inline"><span class="ar">تحميل الفاتورة</span><span class="en">Download invoice</span></span>
+          </button>
+        </div>
+        <p class="wallet-recommended-label">RECOMMENDED</p>
+        <div class="wallet-grid">
+          <a class="wallet-tile" href="payment-vodafone.html">
+            <img src="assets/wallet-vodafone.svg" alt="Vodafone Cash" class="wallet-tile-icon" />
+            <span>Vodafone Cash</span>
+            <small>01143813016</small>
+          </a>
+          <a class="wallet-tile" href="payment-instapay.html">
+            <img src="assets/wallet-instapay.jpg" alt="InstaPay" class="wallet-tile-icon" />
+            <span>InstaPay</span>
+            <small>01147794004</small>
+          </a>
+          <a class="wallet-tile" href="payment-orange.html">
+            <img src="assets/wallet-orange.svg" alt="Orange Cash" class="wallet-tile-icon" />
+            <span>Orange Cash</span>
+            <small>01143813016</small>
+          </a>
+          <a class="wallet-tile" href="payment-etisalat.html">
+            <img src="assets/wallet-etisalat.svg" alt="Etisalat Cash" class="wallet-tile-icon" />
+            <span>Etisalat Cash</span>
+            <small>01143813016</small>
+          </a>
+          <a class="wallet-tile" href="payment-fawry.html">
+            <img src="assets/wallet-fawry.jpg" alt="Fawry Cash" class="wallet-tile-icon" />
+            <span>Fawry Cash</span>
+            <small>01143813016</small>
+          </a>
+          <a class="wallet-tile" href="payment-meeza.html">
+            <img src="assets/wallet-meeza.svg" alt="Meeza" class="wallet-tile-icon" />
+            <span>Meeza</span>
+            <small>01143813016</small>
+          </a>
+        </div>
+      </section>
+
+      <section class="payment-card reveal" id="game-charge">
+        <h3 class="lang-inline"><span class="ar">خدمة شحن الألعاب</span><span class="en">Game Top-Up Service</span></h3>
+        <p class="muted lang-block">
+          <span class="ar">عروض وباقات لكل لعبة، تتبع كامل، وإثبات دفع داخل المنصة.</span>
+          <span class="en">Exclusive offers per game, full tracking, and proof-based verification.</span>
+        </p>
+
+        <div class="topup-badges">
+          <span class="badge-chip lang-inline"><span class="ar">طابور 24/7</span><span class="en">24/7 Queue</span></span>
+          <span class="badge-chip lang-inline"><span class="ar">إثبات مطلوب</span><span class="en">Proof Required</span></span>
+          <span class="badge-chip lang-inline"><span class="ar">تحديثات حالة</span><span class="en">Status Updates</span></span>
+          <span class="badge-chip badge-chip-hot lang-inline"><span class="ar">حصريات الأسبوع</span><span class="en">Weekly Exclusives</span></span>
+        </div>
+
+        <div class="feature-grid topup-catalog">
+          <article class="feature-card game-card" data-tilt data-game="PUBG UC">
+            <img src="assets/game-pubg.svg" alt="PUBG UC top-up" class="game-thumb" />
+            <h3>PUBG UC</h3>
+            <p class="muted lang-block">
+              <span class="ar">باقات UC مع أولوية تنفيذ عند اكتمال الإثبات.</span>
+              <span class="en">UC bundles with priority once proof is verified.</span>
+            </p>
+            <div class="game-exclusives">
+              <span class="mini-chip lang-inline"><span class="ar">تنفيذ سريع</span><span class="en">Fast</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">حماية ID</span><span class="en">ID check</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">تحديثات مباشرة</span><span class="en">Updates</span></span>
+            </div>
+            <div class="game-actions">
+              <button class="outline-btn btn-sm" type="button" data-topup-offers="PUBG UC">
+                <span class="lang-inline"><span class="ar">عرض الباقات</span><span class="en">View offers</span></span>
+              </button>
+              <button class="primary-btn btn-sm" type="button" data-topup-start="PUBG UC">
+                <span class="lang-inline"><span class="ar">ابدأ الشحن</span><span class="en">Start top-up</span></span>
+              </button>
+            </div>
+          </article>
+          <article class="feature-card game-card" data-tilt data-game="Free Fire">
+            <img src="assets/game-freefire.svg" alt="Free Fire top-up" class="game-thumb" />
+            <h3>Free Fire</h3>
+            <p class="muted lang-block">
+              <span class="ar">ماس/جواهر مع مراجعة سريعة بعد التحقق.</span>
+              <span class="en">Diamonds with quick staff review after verification.</span>
+            </p>
+            <div class="game-exclusives">
+              <span class="mini-chip lang-inline"><span class="ar">سعر تنافسي</span><span class="en">Best value</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">مراجعة سريعة</span><span class="en">Quick review</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">دعم أخطاء ID</span><span class="en">ID support</span></span>
+            </div>
+            <div class="game-actions">
+              <button class="outline-btn btn-sm" type="button" data-topup-offers="Free Fire">
+                <span class="lang-inline"><span class="ar">عرض الباقات</span><span class="en">View offers</span></span>
+              </button>
+              <button class="primary-btn btn-sm" type="button" data-topup-start="Free Fire">
+                <span class="lang-inline"><span class="ar">ابدأ الشحن</span><span class="en">Start top-up</span></span>
+              </button>
+            </div>
+          </article>
+          <article class="feature-card game-card" data-tilt data-game="Valorant Points">
+            <img src="assets/game-valorant.svg" alt="Valorant Points top-up" class="game-thumb" />
+            <h3>Valorant Points</h3>
+            <p class="muted lang-block">
+              <span class="ar">VP مع فحص أمني قبل الاعتماد لحماية الحساب.</span>
+              <span class="en">VP with secure checks before approval to protect your account.</span>
+            </p>
+            <div class="game-exclusives">
+              <span class="mini-chip lang-inline"><span class="ar">فحص أمني</span><span class="en">Secure</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">اعتماد قبل التنفيذ</span><span class="en">Approval</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">إثبات إلزامي</span><span class="en">Proof</span></span>
+            </div>
+            <div class="game-actions">
+              <button class="outline-btn btn-sm" type="button" data-topup-offers="Valorant Points">
+                <span class="lang-inline"><span class="ar">عرض الباقات</span><span class="en">View offers</span></span>
+              </button>
+              <button class="primary-btn btn-sm" type="button" data-topup-start="Valorant Points">
+                <span class="lang-inline"><span class="ar">ابدأ الشحن</span><span class="en">Start top-up</span></span>
+              </button>
+            </div>
+          </article>
+          <article class="feature-card game-card" data-tilt data-game="Mobile Legends">
+            <img src="assets/game-mlbb.svg" alt="Mobile Legends top-up" class="game-thumb" />
+            <h3>Mobile Legends</h3>
+            <p class="muted lang-block">
+              <span class="ar">Diamonds مع تتبع كامل وتحديثات الحالة.</span>
+              <span class="en">Diamonds with full tracking and staff review.</span>
+            </p>
+            <div class="game-exclusives">
+              <span class="mini-chip lang-inline"><span class="ar">خصومات</span><span class="en">Deals</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">حالة الطلب</span><span class="en">Tracking</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">تنفيذ دقيق</span><span class="en">Accurate</span></span>
+            </div>
+            <div class="game-actions">
+              <button class="outline-btn btn-sm" type="button" data-topup-offers="Mobile Legends">
+                <span class="lang-inline"><span class="ar">عرض الباقات</span><span class="en">View offers</span></span>
+              </button>
+              <button class="primary-btn btn-sm" type="button" data-topup-start="Mobile Legends">
+                <span class="lang-inline"><span class="ar">ابدأ الشحن</span><span class="en">Start top-up</span></span>
+              </button>
+            </div>
+          </article>
+          <article class="feature-card game-card" data-tilt data-game="League of Legends">
+            <img src="assets/game-lol.svg" alt="League of Legends top-up" class="game-thumb" />
+            <h3>League of Legends</h3>
+            <p class="muted lang-block">
+              <span class="ar">RP عبر مسار دفع موثق وإثبات قبل التنفيذ.</span>
+              <span class="en">RP via secure wallet flow with proof-based verification.</span>
+            </p>
+            <div class="game-exclusives">
+              <span class="mini-chip lang-inline"><span class="ar">تحقق قبل التنفيذ</span><span class="en">Verify</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">أولوية</span><span class="en">Priority</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">مراجعة سريعة</span><span class="en">Quick</span></span>
+            </div>
+            <div class="game-actions">
+              <button class="outline-btn btn-sm" type="button" data-topup-offers="League of Legends">
+                <span class="lang-inline"><span class="ar">عرض الباقات</span><span class="en">View offers</span></span>
+              </button>
+              <button class="primary-btn btn-sm" type="button" data-topup-start="League of Legends">
+                <span class="lang-inline"><span class="ar">ابدأ الشحن</span><span class="en">Start top-up</span></span>
+              </button>
+            </div>
+          </article>
+          <article class="feature-card game-card" data-tilt data-game="Call of Duty Mobile">
+            <img src="assets/game-codm.svg" alt="Call of Duty Mobile top-up" class="game-thumb" />
+            <h3>Call of Duty Mobile</h3>
+            <p class="muted lang-block">
+              <span class="ar">CP مع تدقيق إثبات الدفع وتحديثات مستمرة.</span>
+              <span class="en">CP top-up with proof verification and status updates.</span>
+            </p>
+            <div class="game-exclusives">
+              <span class="mini-chip lang-inline"><span class="ar">تنفيذ سريع</span><span class="en">Fast</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">تأكيد ID</span><span class="en">ID check</span></span>
+              <span class="mini-chip lang-inline"><span class="ar">تتبع كامل</span><span class="en">Tracking</span></span>
+            </div>
+            <div class="game-actions">
+              <button class="outline-btn btn-sm" type="button" data-topup-offers="Call of Duty Mobile">
+                <span class="lang-inline"><span class="ar">عرض الباقات</span><span class="en">View offers</span></span>
+              </button>
+              <button class="primary-btn btn-sm" type="button" data-topup-start="Call of Duty Mobile">
+                <span class="lang-inline"><span class="ar">ابدأ الشحن</span><span class="en">Start top-up</span></span>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div class="topup-layout">
+          <div class="feature-card topup-highlight" data-tilt>
+            <h3>Supported Wallets</h3>
+            <div class="wallet-gallery compact">
+              <a href="payment-vodafone.html" class="media-thumb-link" aria-label="Open Vodafone Cash payment">
+                <img src="assets/wallet-vodafone.svg" alt="Vodafone Cash" class="media-thumb" />
+              </a>
+              <a href="payment-orange.html" class="media-thumb-link" aria-label="Open Orange Cash payment">
+                <img src="assets/wallet-orange.svg" alt="Orange Cash" class="media-thumb" />
+              </a>
+              <a href="payment-etisalat.html" class="media-thumb-link" aria-label="Open Etisalat Cash payment">
+                <img src="assets/wallet-etisalat.svg" alt="Etisalat Cash" class="media-thumb" />
+              </a>
+              <a href="payment-instapay.html" class="media-thumb-link" aria-label="Open InstaPay payment">
+                <img src="assets/wallet-instapay.jpg" alt="InstaPay" class="media-thumb" />
+              </a>
+              <a href="payment-fawry.html" class="media-thumb-link" aria-label="Open Fawry payment">
+                <img src="assets/wallet-fawry.jpg" alt="Fawry" class="media-thumb" />
+              </a>
+              <a href="payment-meeza.html" class="media-thumb-link" aria-label="Open Meeza payment">
+                <img src="assets/wallet-meeza.svg" alt="Meeza" class="media-thumb" />
+              </a>
+            </div>
+          </div>
+          <div class="feature-card" data-tilt>
+            <h3>Payment Route</h3>
+            <p class="muted">InstaPay transfer:</p>
+            <p class="price">01147794004</p>
+            <p class="muted">All other wallets:</p>
+            <p class="price">01143813016</p>
+            <div class="topup-steps">
+              <div class="step-card"><strong>1)</strong><p>Choose game + amount.</p></div>
+              <div class="step-card"><strong>2)</strong><p>Transfer and keep receipt.</p></div>
+              <div class="step-card"><strong>3)</strong><p>Upload proof image and submit.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <form class="panel-form" id="order-form">
+          <label for="order-game" class="lang-inline"><span class="ar">اسم اللعبة</span><span class="en">Game Name</span></label>
+          <select id="order-game" required>
+            <option value="">Select game</option>
+            <option value="PUBG UC">PUBG UC</option>
+            <option value="Free Fire">Free Fire</option>
+            <option value="Valorant Points">Valorant Points</option>
+            <option value="Mobile Legends">Mobile Legends</option>
+            <option value="League of Legends">League of Legends</option>
+            <option value="Call of Duty Mobile">Call of Duty Mobile</option>
+          </select>
+
+          <label for="order-player-id" class="lang-inline"><span class="ar">Player ID</span><span class="en">Player ID</span></label>
+          <input id="order-player-id" type="text" placeholder="ID / معرّف اللاعب" required />
+
+          <label for="order-amount" class="lang-inline"><span class="ar">المبلغ (جنيه)</span><span class="en">Amount (EGP)</span></label>
+          <input id="order-amount" type="number" min="1" step="1" placeholder="200" required />
+          <div id="topup-quick-amounts" class="quick-amounts" aria-label="Game package amounts"></div>
+          <p id="topup-amount-hint" class="muted micro"></p>
+ 
+          <label for="order-wallet" class="lang-inline"><span class="ar">المحفظة</span><span class="en">Wallet</span></label>
+          <select id="order-wallet" required>
+            <option value="">Select wallet</option>
+            <option value="vodafone_cash">Vodafone Cash</option>
+            <option value="orange_cash">Orange Cash</option>
+            <option value="etisalat_cash">Etisalat Cash</option>
+            <option value="instapay">InstaPay</option>
+            <option value="fawry">Fawry</option>
+            <option value="meeza">Meeza</option>
+          </select>
+          <a id="open-wallet-payment-link" class="outline-btn btn-sm" href="payment-instapay.html" target="_blank" rel="noopener">
+            <span class="lang-inline"><span class="ar">افتح صفحة الدفع</span><span class="en">Open payment page</span></span>
+          </a>
+ 
+          <label for="order-sender" class="lang-inline"><span class="ar">رقم المرسل / حساب المحفظة</span><span class="en">Sender Number / Wallet Account</span></label>
+          <input id="order-sender" type="text" placeholder="01xxxxxxxxx" required />
+
+          <label for="order-ref" class="lang-inline"><span class="ar">رقم العملية</span><span class="en">Transaction reference</span></label>
+          <input id="order-ref" type="text" placeholder="رقم العملية / Transaction ID" required />
+          <label for="order-proof-image" class="lang-inline"><span class="ar">صورة إثبات الدفع</span><span class="en">Payment proof image</span></label>
+          <input id="order-proof-image" type="file" accept="image/*" required />
+          <img id="order-proof-preview" class="proof-preview" alt="Payment proof preview" />
+
+          <button class="primary-btn lang-inline" type="submit"><span class="ar">إرسال طلب الشحن</span><span class="en">Submit Top-Up Request</span></button>
+        </form>
+      </section>
+
+      <div class="modal" id="topup-offers-modal" aria-hidden="true">
+        <div class="modal-card topup-offers-card">
+          <div class="topup-offers-head">
+            <div>
+              <h3 id="topup-offers-title" class="lang-inline"><span class="ar">عروض اللعبة</span><span class="en">Game offers</span></h3>
+              <p id="topup-offers-subtitle" class="muted micro"></p>
+            </div>
+            <button class="ghost-btn" type="button" data-close>
+              <span class="lang-inline"><span class="ar">إغلاق</span><span class="en">Close</span></span>
+            </button>
+          </div>
+          <div id="topup-offers-grid" class="topup-offers-grid"></div>
+          <div class="topup-offers-footer">
+            <button id="topup-offers-start-btn" class="primary-btn" type="button">
+              <span class="lang-inline"><span class="ar">ابدأ الشحن</span><span class="en">Start top-up</span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <section class="ticket-card reveal">
+        <h3>My Top-Up Orders</h3>
+        <div class="ticket-list" id="order-list"></div>
+      </section>
+
+      <section class="support-card reveal" id="device-security-check">
+        <h3>Game Issue Diagnostics + Secure Device Check</h3>
+        <p class="muted">
+          Submit one request to analyze game issues and run a secure device health check before support actions.
+        </p>
+        <div class="feature-grid">
+          <article class="feature-card" data-tilt>
+            <h3>What we check</h3>
+            <ul>
+              <li>Crash, lag, FPS drops, and startup/login failures.</li>
+              <li>System conflicts, background load, and driver/runtime issues.</li>
+              <li>Security status and suspicious behavior affecting gameplay.</li>
+              <li>Registry, DLL, and Windows audit files review.</li>
+              <li>Repair and tuning actions based on scan findings.</li>
+            </ul>
+          </article>
+          <article class="feature-card" data-tilt>
+            <h3>Request this service</h3>
+            <form class="panel-form" id="security-check-form">
+              <label for="security-game-name">Game Name</label>
+              <input id="security-game-name" type="text" placeholder="PUBG, Valorant, Free Fire..." required />
+              <label for="security-device-os">Device / OS</label>
+              <input id="security-device-os" type="text" placeholder="Windows 10, Android 14..." required />
+              <label for="security-issue-summary">Issue Summary</label>
+              <input id="security-issue-summary" type="text" placeholder="Describe the problem in one line" required />
+              <label for="security-service-type">Service Type</label>
+              <select id="security-service-type" required>
+                <option value="repair_and_tuning">Repair + Tuning</option>
+                <option value="security_scan_only">Security Scan Only</option>
+                <option value="game_diagnostics_only">Game Diagnostics Only</option>
+              </select>
+              <label for="security-artifacts">Files/Artifacts to inspect</label>
+              <input
+                id="security-artifacts"
+                type="text"
+                placeholder="registry, dll, windows audit"
+                value="registry, dll, windows audit"
+                required
+              />
+              <button class="primary-btn lang-inline" type="submit"><span class="ar">إرسال طلب التشخيص</span><span class="en">Submit Diagnostic Request</span></button>
+              <p id="security-check-status" class="muted micro"></p>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <section class="support-card reveal" id="support">
+        <h3 class="lang-inline">
+          <span class="ar">دعم مباشر</span>
+          <span class="en">Live support</span>
+        </h3>
+        <p class="muted lang-block">
+          <span class="ar">ابدأ محادثة مع مهندس سوفت وير (واجهة تجريبية).</span>
+          <span class="en">Start a chat with an engineer (demo UI).</span>
+        </p>
+        <div class="chat-window" id="chat-window">
+          <div class="chat-message agent">
+            <p class="lang-block">
+              <span class="ar">اهلا! ما المشكلة التي تعمل عليها؟</span>
+              <span class="en">Hello! What issue are you working on?</span>
+            </p>
+            <span class="lang-inline">
+              <span class="ar">المهندسة نور</span>
+              <span class="en">Engineer Noor</span>
+            </span>
+          </div>
+        </div>
+        <form class="chat-input" id="chat-form">
+          <input
+            type="text"
+            id="chat-text"
+            placeholder="اكتب المشكلة / Describe your issue"
+            required
+          />
+          <button class="primary-btn" type="submit">
+            <span class="lang-inline"><span class="ar">ارسال</span><span class="en">Send</span></span>
+          </button>
+        </form>
+      </section>
+
+      <section class="ticket-card reveal">
+        <h3 class="lang-inline">
+          <span class="ar">تذاكر الدعم</span>
+          <span class="en">Support tickets</span>
+        </h3>
+        <div class="ticket-list" id="ticket-list">
+          <div class="ticket-item">
+            <div>
+              <h4 class="lang-inline"><span class="ar">خلل في الدفع</span><span class="en">Payment mismatch</span></h4>
+              <p class="muted lang-inline"><span class="ar">مفتوحة</span><span class="en">Open</span></p>
+            </div>
+            <span class="status-pill lang-inline"><span class="ar">مرتفعة</span><span class="en">High</span></span>
+          </div>
+          <div class="ticket-item">
+            <div>
+              <h4 class="lang-inline"><span class="ar">طلب جلسة دعم</span><span class="en">Support session request</span></h4>
+              <p class="muted lang-inline"><span class="ar">قيد المراجعة</span><span class="en">Reviewing</span></p>
+            </div>
+            <span class="status-pill lang-inline"><span class="ar">متوسطة</span><span class="en">Medium</span></span>
+          </div>
+        </div>
+        <form class="panel-form" id="ticket-form">
+          <label for="ticket-text" class="lang-inline">
+            <span class="ar">اكتب المشكلة</span>
+            <span class="en">Describe the issue</span>
+          </label>
+          <input id="ticket-text" type="text" placeholder="New ticket subject" required />
+          <button class="primary-btn" type="submit">
+            <span class="lang-inline"><span class="ar">اضافة تذكرة</span><span class="en">Add ticket</span></span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <div class="modal" id="upgrade-modal" aria-hidden="true">
+      <div class="modal-card">
+        <h3 class="lang-inline"><span class="ar">ترقية الوصول</span><span class="en">Upgrade access</span></h3>
+        <p class="lang-block">
+          <span class="ar">اختر برو لفتح المراكز المميزة.</span>
+          <span class="en">First session is free. From the second session: 200 EGP per user.</span>
+        </p>
+        <p id="upgrade-summary" class="muted">Checking your current session status...</p>
+        <div class="modal-actions">
+          <button id="upgrade-continue-btn" class="primary-btn" type="button" data-open="payment">
+            <span class="lang-inline"><span class="ar">متابعة</span><span class="en">Continue</span></span>
+          </button>
+          <button class="ghost-btn" type="button" data-close>
+            <span class="lang-inline"><span class="ar">لاحقا</span><span class="en">Not now</span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="payment-modal" aria-hidden="true">
+      <div class="modal-card">
+        <div class="wallet-header-box">
+          <img id="payment-wallet-logo" src="assets/wallet-instapay.jpg" alt="Wallet logo" class="payment-wallet-logo" />
+        </div>
+        <p id="payment-notice" class="payment-green-notice">
+          Before creating a request, transfer funds within 10 minutes using the payment details provided below.
+        </p>
+        <form class="panel-form" id="payment-form">
+          <label for="payment-wallet" class="lang-inline">
+            <span class="ar">المحفظة</span>
+            <span class="en">Wallet</span>
+          </label>
+          <select id="payment-wallet" required>
+            <option value="instapay">InstaPay</option>
+            <option value="vodafone_cash">Vodafone Cash</option>
+            <option value="orange_cash">Orange Cash</option>
+            <option value="etisalat_cash">Etisalat Cash</option>
+            <option value="fawry">Fawry Cash</option>
+            <option value="meeza">Meeza</option>
+          </select>
+
+          <div class="payment-line">
+            <span id="payment-transfer-label">Transfer number:</span>
+            <strong id="payment-receiver-number">01147794004</strong>
+          </div>
+
+          <div class="wallet-detail-panel">
+            <p id="payment-amount-range" class="muted">Amount (Min 70.00 EGP / Max 2 000.00 EGP):</p>
+            <input id="payment-amount" type="number" min="70" max="2000" step="1" value="300" required />
+            <p id="payment-receiver-note" class="muted">InstaPay only - use @instapay or QR</p>
+          </div>
+
+          <div id="instapay-qr-wrap" class="instapay-qr-wrap">
+            <p class="muted">InstaPay QR - account: <strong>fouadbeehtaher@instapay</strong></p>
+            <img src="instapay-qr-real.png.png" alt="InstaPay QR" class="instapay-qr-image" />
+          </div>
+
+          <div class="quick-amounts">
+            <button type="button" class="ghost-btn quick-amount-btn" data-amount="70">70</button>
+            <button type="button" class="ghost-btn quick-amount-btn" data-amount="99">99</button>
+            <button type="button" class="ghost-btn quick-amount-btn" data-amount="150">150</button>
+            <button type="button" class="ghost-btn quick-amount-btn" data-amount="250">250</button>
+            <button type="button" class="ghost-btn quick-amount-btn" data-amount="500">500</button>
+            <button type="button" class="ghost-btn quick-amount-btn" data-amount="1000">1 000</button>
+            <button type="button" class="ghost-btn quick-amount-btn" data-amount="2000">2 000</button>
+          </div>
+
+          <label id="payment-sender-label" for="payment-sender">Your phone or wallet address</label>
+          <input id="payment-sender" type="text" placeholder="01xxxxxxxxx or @instapay" required />
+
+          <label for="payment-reference" class="lang-inline">
+            <span class="ar">رقم العملية</span>
+            <span class="en">Transaction reference</span>
+          </label>
+          <input id="payment-reference" type="text" placeholder="Write transfer reference" required />
+
+          <p id="payment-instructions" class="muted payment-instructions">
+            Enter the details, then click Confirm.
+          </p>
+
+          <label for="payment-proof-image" class="lang-inline">
+            <span class="ar">صورة إثبات الدفع</span>
+            <span class="en">Payment proof image</span>
+          </label>
+          <input id="payment-proof-image" type="file" accept="image/*" required />
+          <img id="payment-proof-preview" class="proof-preview" alt="Payment proof preview" />
+          <button class="primary-btn payment-confirm-btn" type="submit">
+            <span class="lang-inline"><span class="ar">تاكيد</span><span class="en">Confirm (Mock)</span></span>
+          </button>
+          <button class="ghost-btn" type="button" data-close>
+            <span class="lang-inline"><span class="ar">الغاء</span><span class="en">Cancel</span></span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-title">GateLaunch</p>
+          <p class="muted footer-copy lang-block">
+            <span class="ar">منصة دعم وشحن ألعاب مع تتبع وإثبات دفع.</span>
+            <span class="en">Support + game top-up platform with tracking and proof flows.</span>
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="about.html" class="lang-inline"><span class="ar">من نحن</span><span class="en">About</span></a>
+          <a href="#payments" class="lang-inline"><span class="ar">الدفع</span><span class="en">Payments</span></a>
+          <a href="#game-charge" class="lang-inline"><span class="ar">شحن</span><span class="en">Top-up</span></a>
+          <a href="help.html" class="lang-inline"><span class="ar">المساعدة</span><span class="en">Help</span></a>
+        </div>
+        <div>
+          <p class="footer-title lang-inline"><span class="ar">تواصل</span><span class="en">Contact</span></p>
+          <p class="muted footer-copy">S23510848EG@STD.AOU.EDU.EG</p>
+          <p class="muted footer-copy">InstaPay: 01147794004 | Wallets: 01143813016</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/lucide@0.563.0/dist/umd/lucide.js" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+
+
