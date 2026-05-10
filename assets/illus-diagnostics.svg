@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Diagnostics and device security illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0709"/>
+      <stop offset="1" stop-color="#101012"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff3a44"/>
+      <stop offset="1" stop-color="#9b101f"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#bg)"/>
+  <circle cx="250" cy="90" r="150" fill="url(#accent)" filter="url(#soft)" opacity="0.30"/>
+  <circle cx="790" cy="430" r="190" fill="url(#accent)" filter="url(#soft)" opacity="0.22"/>
+
+  <g transform="translate(110 110)">
+    <rect x="0" y="0" width="740" height="320" rx="26" fill="#ffffff" opacity="0.06" stroke="#ff6a75" stroke-opacity="0.26"/>
+    <rect x="28" y="28" width="260" height="18" rx="9" fill="#ffffff" opacity="0.12"/>
+    <rect x="28" y="56" width="320" height="12" rx="6" fill="#ffffff" opacity="0.08"/>
+    <rect x="28" y="78" width="280" height="12" rx="6" fill="#ffffff" opacity="0.08"/>
+
+    <g transform="translate(42 120)">
+      <rect x="0" y="0" width="290" height="176" rx="22" fill="#ffffff" opacity="0.05" stroke="#ffffff" stroke-opacity="0.14"/>
+      <path d="M44 124 C70 86, 104 160, 136 120 C160 92, 188 156, 214 106 C232 72, 250 92, 264 70" fill="none" stroke="#ff6a75" stroke-width="8" stroke-linecap="round" opacity="0.75"/>
+      <circle cx="54" cy="124" r="6" fill="#ffffff" opacity="0.25"/>
+      <circle cx="136" cy="120" r="6" fill="#ffffff" opacity="0.25"/>
+      <circle cx="214" cy="106" r="6" fill="#ffffff" opacity="0.25"/>
+      <circle cx="264" cy="70" r="6" fill="#ffffff" opacity="0.25"/>
+    </g>
+
+    <g transform="translate(380 120)">
+      <rect x="0" y="0" width="320" height="176" rx="22" fill="#ffffff" opacity="0.05" stroke="#ffffff" stroke-opacity="0.14"/>
+
+      <g transform="translate(74 20)">
+        <path d="M86 16 l58 22 v64 c0 54-36 88-58 102 c-22-14-58-48-58-102 v-64z" fill="url(#accent)" opacity="0.92"/>
+        <path d="M64 86 l18 18 l42-48" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+      </g>
+      <rect x="28" y="138" width="264" height="12" rx="6" fill="#ffffff" opacity="0.10"/>
+    </g>
+  </g>
+</svg>
+

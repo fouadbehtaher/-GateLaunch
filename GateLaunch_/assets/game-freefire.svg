@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Free Fire Top-Up</title>
+  <desc id="desc">Stylized game thumbnail for Free Fire top-up service.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2d1020" />
+      <stop offset="100%" stop-color="#120d1e" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f72585" />
+      <stop offset="100%" stop-color="#ff8fab" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#bg)" />
+  <circle cx="700" cy="80" r="160" fill="#f72585" opacity="0.14" />
+  <circle cx="120" cy="480" r="160" fill="#ff8fab" opacity="0.1" />
+  <rect x="64" y="70" width="672" height="380" rx="24" fill="#1a1126" stroke="#f72585" stroke-opacity="0.4" />
+  <rect x="94" y="100" width="180" height="40" rx="10" fill="url(#accent)" />
+  <text x="184" y="126" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#190d21">TOP-UP</text>
+  <text x="94" y="206" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="800" fill="#ff8fab">FREE FIRE</text>
+  <text x="94" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#e6d6ee">Diamonds recharge with live support</text>
+  <text x="94" y="308" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#bfa5cd">Queue updates in dashboard</text>
+  <text x="94" y="344" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#bfa5cd">Proof image required before approval</text>
+  <rect x="94" y="374" width="260" height="48" rx="12" fill="#f72585" />
+  <text x="224" y="405" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#1a1126">01147794004</text>
+</svg>

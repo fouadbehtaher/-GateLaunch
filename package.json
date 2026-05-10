@@ -1,0 +1,59 @@
+{
+  "name": "gatelaunch-v2",
+  "version": "2.0.0",
+  "description": "GateLaunch - Advanced Gaming Platform with AI-powered operations",
+  "main": "src/app.js",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "start:api": "node src/app.js",
+    "dev:api": "nodemon src/app.js",
+    "vendor:fetch": "node scripts/vendor-fetch.js",
+    "build": "node scripts/build.js",
+    "security:owasp": "node scripts/owasp-check.js",
+    "security:audit": "npm audit --audit-level=high",
+    "security": "npm run check && npm run security:owasp && npm run security:audit",
+    "storage:validate": "node scripts/storage-validate.js",
+    "storage:upgrade": "node scripts/storage-upgrade.js",
+    "storage:optimize": "node scripts/storage-optimize.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "node --check server.js && node --check src/app.js && node --check db.js && node --check app.js",
+    "smoke": "powershell -ExecutionPolicy Bypass -File .\\smoke-test.ps1"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "redis": "^4.6.12",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1",
+    "ws": "^8.16.0"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^11.7.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.3",
+    "prettier": "^3.2.4",
+    "supertest": "^6.3.4"
+  }
+}

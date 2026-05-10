@@ -1,0 +1,24 @@
+<svg width="180" height="120" viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="InstaPay">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="180" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16A5F8" />
+      <stop offset="1" stop-color="#5C5CFF" />
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFB703" />
+      <stop offset="1" stop-color="#FF3A44" />
+    </linearGradient>
+  </defs>
+  <rect width="180" height="120" rx="20" fill="url(#bg)" />
+  <g transform="translate(18 18)">
+    <rect width="84" height="84" rx="18" fill="rgba(255,255,255,0.10)" />
+    <circle cx="42" cy="42" r="28" fill="#fff" opacity="0.95" />
+    <path d="M34 57V27h8v30h-8z" fill="url(#mark)" />
+    <path d="M44 27h12c8 0 14 6 14 14s-6 14-14 14H44V47h12c4 0 6-3 6-6s-2-6-6-6H44v-8z" fill="#2B0F16" opacity="0.88" />
+  </g>
+  <g fill="#fff" font-family="system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-weight="900">
+    <text x="108" y="56" font-size="18" letter-spacing="0.4">InstaPay</text>
+    <text x="108" y="78" font-size="13" opacity="0.92" font-weight="800">Transfer</text>
+  </g>
+</svg>
+

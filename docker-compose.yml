@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # GateLaunch Application
+  app:
+    build: .
+    container_name: gatelaunch-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - STORAGE_DRIVER=sqlite
+      - DB_PATH=/app/storage/gatelaunch.db
+      - REDIS_ENABLED=true
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - JWT_SECRET=${JWT_SECRET}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL}
+      - N8N_WEBHOOK_URL=${N8N_WEBHOOK_URL}
+      - N8N_WEBHOOK_SECRET=${N8N_WEBHOOK_SECRET}
+    volumes:
+      - ./storage:/app/storage
+      - ./logs:/app/logs
+      - ./uploads:/app/uploads
+    depends_on:
+      - redis
+    networks:
+      - gatelaunch-network
+
+  # Dev Tools (format/lint) - run on demand
+  tools:
+    build:
+      context: .
+      dockerfile: Dockerfile.tools
+    profiles: ["tools"]
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - tools-node-modules:/app/node_modules
+    entrypoint: ["sh", "-lc"]
+    command: "npm run format"
+    networks:
+      - gatelaunch-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: gatelaunch-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-}
+    networks:
+      - gatelaunch-network
+
+  # Nginx Reverse Proxy (اختياري)
+  nginx:
+    image: nginx:alpine
+    container_name: gatelaunch-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - app
+    networks:
+      - gatelaunch-network
+
+volumes:
+  redis-data:
+    driver: local
+  tools-node-modules:
+    driver: local
+
+networks:
+  gatelaunch-network:
+    driver: bridge

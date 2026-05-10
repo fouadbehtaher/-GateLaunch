@@ -1,0 +1,7 @@
+﻿<svg width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="120" rx="18" fill="#0E7CFF"/>
+  <rect x="36" y="36" width="48" height="48" rx="10" fill="white"/>
+  <path d="M52 60H68" stroke="#0E7CFF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M60 52V68" stroke="#0E7CFF" stroke-width="6" stroke-linecap="round"/>
+  <text x="94" y="68" fill="white" font-size="18" font-family="Arial, sans-serif" font-weight="700">TeamViewer</text>
+</svg>

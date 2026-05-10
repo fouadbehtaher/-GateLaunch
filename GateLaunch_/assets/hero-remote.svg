@@ -1,0 +1,31 @@
+<svg width="960" height="640" viewBox="0 0 960 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="860" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5CE1E6"/>
+      <stop offset="0.5" stop-color="#9B7BFF"/>
+      <stop offset="1" stop-color="#FFD166"/>
+    </linearGradient>
+    <linearGradient id="card" x1="140" y1="110" x2="780" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D132A"/>
+      <stop offset="1" stop-color="#182040"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="640" rx="40" fill="#0B1022"/>
+  <circle cx="180" cy="140" r="120" fill="url(#bg)" opacity="0.25"/>
+  <circle cx="760" cy="500" r="140" fill="url(#bg)" opacity="0.18"/>
+  <rect x="120" y="90" width="720" height="460" rx="28" fill="url(#card)" stroke="#344175" stroke-width="2"/>
+  <rect x="170" y="150" width="300" height="220" rx="20" fill="#232E58"/>
+  <rect x="200" y="185" width="240" height="18" rx="9" fill="#5CE1E6" opacity="0.8"/>
+  <rect x="200" y="220" width="190" height="14" rx="7" fill="#9AA5D6" opacity="0.65"/>
+  <rect x="200" y="248" width="210" height="14" rx="7" fill="#9AA5D6" opacity="0.5"/>
+  <rect x="200" y="276" width="140" height="14" rx="7" fill="#9AA5D6" opacity="0.4"/>
+  <rect x="520" y="170" width="260" height="150" rx="18" fill="#232E58"/>
+  <rect x="550" y="205" width="200" height="16" rx="8" fill="#FFD166"/>
+  <rect x="550" y="236" width="150" height="12" rx="6" fill="#9AA5D6" opacity="0.65"/>
+  <rect x="550" y="261" width="176" height="12" rx="6" fill="#9AA5D6" opacity="0.5"/>
+  <rect x="520" y="350" width="260" height="140" rx="18" fill="#232E58"/>
+  <circle cx="570" cy="420" r="26" fill="#5CE1E6"/>
+  <path d="M560 420L568 428L582 412" stroke="#0B1022" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="610" y="403" width="140" height="14" rx="7" fill="#9AA5D6" opacity="0.75"/>
+  <rect x="610" y="430" width="110" height="12" rx="6" fill="#9AA5D6" opacity="0.55"/>
+</svg>

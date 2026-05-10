@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GateLaunch | Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/icon-shield.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/vendor/notyf.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="admin" class="rtl">
+    <div class="ambient"></div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span class="brand-text">GateLaunch</span>
+      </div>
+      <nav class="top-links">
+        <a href="about.html">About</a>
+        <a href="landing.html" class="lang-inline"><span class="ar">Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©</span><span class="en">Landing</span></a>
+        <a href="index.html" class="lang-inline"><span class="ar">Ø§Ù„Ø¯Ø®ÙˆÙ„</span><span class="en">Login</span></a>
+        <a href="dashboard.html" class="lang-inline"><span class="ar">Ù„ÙˆØ­Ø© Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…</span><span class="en">Dashboard</span></a>
+        <a href="help.html" class="lang-inline"><span class="ar">Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø©</span><span class="en">Help</span></a>
+        <a href="#tickets" class="lang-inline"><span class="ar">Ø§Ù„ØªØ°Ø§ÙƒØ±</span><span class="en">Tickets</span></a>
+        <a href="#access-requests" class="lang-inline"><span class="ar">Ø·Ù„Ø¨Ø§Øª Ø§Ù„ÙˆØµÙˆÙ„</span><span class="en">Access Requests</span></a>
+        <a href="#notifications" class="lang-inline"><span class="ar">Ø§Ù„ØªÙ†Ø¨ÙŠÙ‡Ø§Øª</span><span class="en">Notifications</span></a>
+        <a href="#audit" class="lang-inline"><span class="ar">Ø³Ø¬Ù„ Ø§Ù„ØªØ¯Ù‚ÙŠÙ‚</span><span class="en">Audit</span></a>
+        <a href="#ai-sync" class="lang-inline"><span class="ar">Ø§Ù„Ù…Ø²Ø§Ù…Ù†Ø© Ø§Ù„Ø°ÙƒÙŠØ©</span><span class="en">AI Sync</span></a>
+        <a href="#integrations" data-admin-only class="lang-inline"><span class="ar">Ø§Ù„ØªÙƒØ§Ù…Ù„Ø§Øª</span><span class="en">Integrations</span></a>
+        <a href="#storage" data-admin-only class="lang-inline"><span class="ar">Ø§Ù„ØªØ®Ø²ÙŠÙ†</span><span class="en">Storage</span></a>
+        <a href="#performance" data-admin-only class="lang-inline"><span class="ar">Ø§Ù„Ø£Ø¯Ø§Ø¡</span><span class="en">Performance</span></a>
+        <a href="#orders" class="lang-inline"><span class="ar">Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ø´Ø­Ù†</span><span class="en">Game Orders</span></a>
+        <a href="#payments" class="lang-inline"><span class="ar">Ø§Ù„Ù…Ø¯ÙÙˆØ¹Ø§Øª</span><span class="en">Payments</span></a>
+        <a href="#users" data-admin-only class="lang-inline"><span class="ar">Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙˆÙ†</span><span class="en">Users</span></a>
+      </nav>
+      <div class="top-actions">
+        <button class="outline-btn" type="button" data-action="toggle-dir">
+          <span class="lang-inline"><span class="ar">Ø¹Ø±Ø¨ÙŠ</span><span class="en">English</span></span>
+        </button>
+        <button class="outline-btn" type="button" data-action="logout" id="logout-btn">
+          <span class="lang-inline"><span class="ar">تسجيل خروج</span><span class="en">Logout</span></span>
+        </button>
+        <span class="status-pill lang-inline"><span class="ar">Ø§Ù„ØªÙ†Ø¨ÙŠÙ‡Ø§Øª:</span><span class="en">Notifications:</span> <strong id="admin-notification-badge">0</strong></span>
+        <div class="user-chip">
+          <span class="avatar" id="user-avatar" aria-label="User avatar">AD</span>
+          <div>
+            <p class="user-name lang-inline"><span class="ar">Ù…ÙƒØªØ¨ Ø§Ù„Ø¥Ø¯Ø§Ø±Ø©</span><span class="en">Admin Desk</span></p>
+            <p class="user-role lang-inline"><span class="ar">Ù…Ø´Ø±Ù Ø§Ù„Ù†Ø¸Ø§Ù…</span><span class="en">System Admin</span></p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section reveal page-intro">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ù„ÙˆØ­Ø© Ø¥Ø¯Ø§Ø±Ø© Ù…Ù†Ø¸Ù…Ø©</span><span class="en">Structured Admin Workspace</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">ØªØ³Ù„Ø³Ù„ ÙˆØ§Ø¶Ø­: Ø§Ù„ØªØ°Ø§ÙƒØ± Ø«Ù… Ø§Ù„Ø·Ù„Ø¨Ø§Øª Ø«Ù… Ø§Ù„Ø¥ÙŠØµØ§Ù„Ø§Øª Ø«Ù… Ø­Ø§Ù„Ø© ØªØ´ØºÙŠÙ„ Ø§Ù„Ù…Ù†ØµØ©.</span>
+          <span class="en">Clear sequence: tickets, orders, receipts, then platform operations health.</span>
+        </p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3 class="lang-inline"><span class="ar">1) Ù…Ø±Ø§Ø¬Ø¹Ø© Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø§Ù†ØªØ¸Ø§Ø±</span><span class="en">1) Review Queue</span></h3>
+          <p class="muted lang-block">
+            <span class="ar">Ø§Ø¨Ø¯Ø£ Ø¨Ø§Ù„ØªØ°Ø§ÙƒØ± Ø§Ù„Ù…ÙØªÙˆØ­Ø© ÙˆØ·Ù„Ø¨Ø§Øª Ø§Ù„Ø®Ø¯Ù…Ø© Ø§Ù„Ù…Ø¹Ù„Ù‚Ø©.</span>
+            <span class="en">Start with open tickets and pending service requests.</span>
+          </p>
+        </article>
+        <article class="feature-card">
+          <h3 class="lang-inline"><span class="ar">2) Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ù…Ø¯ÙÙˆØ¹Ø§Øª</span><span class="en">2) Verify Payments</span></h3>
+          <p class="muted lang-block">
+            <span class="ar">Ø±Ø§Ø¬Ø¹ Ø§Ù„Ø¥ÙŠØµØ§Ù„Ø§Øª Ù‚Ø¨Ù„ Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ù…Ø±ØªØ¨Ø·Ø© Ø¨Ù‡Ø§.</span>
+            <span class="en">Validate receipts before approving related orders.</span>
+          </p>
+        </article>
+        <article class="feature-card">
+          <h3 class="lang-inline"><span class="ar">3) Ù…Ø±Ø§Ù‚Ø¨Ø© Ø§Ù„Ù†Ø¸Ø§Ù…</span><span class="en">3) Monitor System</span></h3>
+          <p class="muted lang-block">
+            <span class="ar">ØªØ§Ø¨Ø¹ Ø§Ù„Ø£Ø¯Ø§Ø¡ ÙˆØ§Ù„ØªØ®Ø²ÙŠÙ† ÙˆØ§Ù„ØªÙƒØ§Ù…Ù„Ø§Øª Ø¨Ø´ÙƒÙ„ Ù…Ø³ØªÙ…Ø±.</span>
+            <span class="en">Track performance, storage, and integrations continuously.</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal section-nav-wrap">
+      <div class="flow-nav">
+        <a href="#tickets" class="lang-inline"><span class="ar">Ø§Ù„ØªØ°Ø§ÙƒØ±</span><span class="en">Tickets</span></a>
+        <a href="#access-requests" class="lang-inline"><span class="ar">Ø§Ù„ÙˆØµÙˆÙ„</span><span class="en">Access</span></a>
+        <a href="#orders" class="lang-inline"><span class="ar">Ø§Ù„Ø·Ù„Ø¨Ø§Øª</span><span class="en">Orders</span></a>
+        <a href="#payments" class="lang-inline"><span class="ar">Ø§Ù„Ù…Ø¯ÙÙˆØ¹Ø§Øª</span><span class="en">Payments</span></a>
+        <a href="#payment-receipts" class="lang-inline"><span class="ar">Ø§Ù„Ø¥ÙŠØµØ§Ù„Ø§Øª</span><span class="en">Receipts</span></a>
+        <a href="#notifications" class="lang-inline"><span class="ar">Ø§Ù„ØªÙ†Ø¨ÙŠÙ‡Ø§Øª</span><span class="en">Notifications</span></a>
+        <a href="#audit" class="lang-inline"><span class="ar">Ø³Ø¬Ù„ Ø§Ù„ØªØ¯Ù‚ÙŠÙ‚</span><span class="en">Audit</span></a>
+        <a href="#integrations" class="lang-inline"><span class="ar">Ø§Ù„ØªÙƒØ§Ù…Ù„Ø§Øª</span><span class="en">Integrations</span></a>
+        <a href="#storage" class="lang-inline"><span class="ar">Ø§Ù„ØªØ®Ø²ÙŠÙ†</span><span class="en">Storage</span></a>
+        <a href="#performance" class="lang-inline"><span class="ar">Ø§Ù„Ø£Ø¯Ø§Ø¡</span><span class="en">Performance</span></a>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ù†Ø¸Ø±Ø© Ø¹Ø§Ù…Ø©</span><span class="en">Overview</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">Ù…Ø±Ø§Ù‚Ø¨Ø© Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ø¯Ø¹Ù… ÙˆØ·Ù„Ø¨Ø§Øª Ø´Ø­Ù† Ø§Ù„Ø£Ù„Ø¹Ø§Ø¨.</span>
+          <span class="en">Monitor support and game top-up operations.</span>
+        </p>
+        <div class="order-actions range-filter">
+          <button class="status-btn active" type="button" data-admin-range="all">
+            <span class="lang-inline"><span class="ar">Ø§Ù„ÙƒÙ„</span><span class="en">All</span></span>
+          </button>
+          <button class="status-btn" type="button" data-admin-range="today">
+            <span class="lang-inline"><span class="ar">Ø§Ù„ÙŠÙˆÙ…</span><span class="en">Today</span></span>
+          </button>
+          <button class="status-btn" type="button" data-admin-range="7d">7d</button>
+          <button class="status-btn" type="button" data-admin-range="30d">30d</button>
+          <button class="status-btn" type="button" id="admin-kpi-range-reset">
+            <span class="lang-inline"><span class="ar">Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø·</span><span class="en">Reset</span></span>
+          </button>
+          <span id="admin-kpi-range-note" class="muted micro">
+            <span class="lang-inline"><span class="ar">Ø§Ù„Ù†Ø·Ø§Ù‚: ÙƒÙ„ Ø§Ù„Ù…Ø¯Ø©</span><span class="en">Range: All time</span></span>
+          </span>
+        </div>
+      </div>
+      <div class="feature-card">
+        <img src="assets/admin-illustration.svg" alt="Admin operations illustration" class="wide-image" />
+      </div>
+      <div class="metric-grid">
+        <div class="metric-card access-kpi access-kpi-approved">
+          <h3 class="lang-inline"><span class="ar">Ù…Ø³ØªØ®Ø¯Ù…ÙˆÙ† Ù†Ø´Ø·ÙˆÙ†</span><span class="en">Active Users</span></h3>
+          <p class="price" id="admin-overview-active-users">0</p>
+          <span class="status-pill" id="admin-overview-active-note">Ù†Ø´Ø·</span>
+        </div>
+        <div class="metric-card access-kpi access-kpi-pending">
+          <h3 class="lang-inline"><span class="ar">Ù‚Ø§Ø¦Ù…Ø© Ø§Ù†ØªØ¸Ø§Ø± Ù…ÙØªÙˆØ­Ø©</span><span class="en">Open Queue</span></h3>
+          <p class="price" id="admin-overview-open-queue">0</p>
+          <span class="status-pill" id="admin-overview-open-note">Ù†Ø´Ø·</span>
+        </div>
+        <div class="metric-card access-kpi access-kpi-rejected">
+          <h3 class="lang-inline"><span class="ar">Ø­Ø¬Ù… Ø§Ù„Ù…Ø¯ÙÙˆØ¹Ø§Øª</span><span class="en">Payment Volume</span></h3>
+          <p class="price" id="admin-overview-monthly-volume">0 EGP</p>
+          <span class="status-pill" id="admin-overview-monthly-note">Ø§Ù„Ø´Ù‡Ø± Ø§Ù„Ø­Ø§Ù„ÙŠ</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="tickets">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„ØªØ°Ø§ÙƒØ±</span><span class="en">Ticket Queue</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">Ù…Ø±Ø§Ø¬Ø¹Ø© ØªØ°Ø§ÙƒØ± Ø¯Ø¹Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ†.</span>
+          <span class="en">Review user support tickets.</span>
+        </p>
+      </div>
+      <div class="metric-grid">
+        <div class="metric-card access-kpi access-kpi-pending">
+          <h3 class="lang-inline"><span class="ar">ØªØ°Ø§ÙƒØ± Ù…ÙØªÙˆØ­Ø©</span><span class="en">Open Tickets</span></h3>
+          <p class="price" id="admin-ticket-open">0</p>
+        </div>
+        <div class="metric-card access-kpi access-kpi-approved">
+          <h3 class="lang-inline"><span class="ar">ØªØ°Ø§ÙƒØ± Ù…ØºÙ„Ù‚Ø©</span><span class="en">Closed Tickets</span></h3>
+          <p class="price" id="admin-ticket-closed">0</p>
+        </div>
+      </div>
+      <div class="ticket-list" id="admin-ticket-list"></div>
+    </section>
+
+    <section class="section reveal" id="access-requests">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ø·Ù„Ø¨Ø§Øª Ø§Ù„ÙˆØµÙˆÙ„</span><span class="en">Access Requests</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">Ø§Ø¹ØªÙ…Ø§Ø¯ Ø£Ùˆ Ø±ÙØ¶ Ø·Ù„Ø¨Ø§Øª Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ù…ÙˆØ§Ø±Ø¯ Ø§Ù„Ù…Ù†ØµØ©.</span>
+          <span class="en">Approve or reject requested access to platform resources.</span>
+        </p>
+      </div>
+      <div class="metric-grid">
+        <div class="metric-card access-kpi access-kpi-pending">
+          <h3 class="lang-inline"><span class="ar">Ù…Ø¹Ù„Ù‚</span><span class="en">Pending</span></h3>
+          <p class="price" id="admin-access-pending">0</p>
+        </div>
+        <div class="metric-card access-kpi access-kpi-approved">
+          <h3 class="lang-inline"><span class="ar">Ù…Ø¹ØªÙ…Ø¯</span><span class="en">Approved</span></h3>
+          <p class="price" id="admin-access-approved">0</p>
+        </div>
+        <div class="metric-card access-kpi access-kpi-rejected">
+          <h3 class="lang-inline"><span class="ar">Ù…Ø±ÙÙˆØ¶</span><span class="en">Rejected</span></h3>
+          <p class="price" id="admin-access-rejected">0</p>
+        </div>
+      </div>
+      <div class="ticket-list" id="admin-access-request-list"></div>
+    </section>
+
+    <section class="section reveal" id="notifications">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">ØªÙ†Ø¨ÙŠÙ‡Ø§Øª Ø§Ù„Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø®Ù„ÙÙŠØ©</span><span class="en">Backoffice Notifications</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">ØªÙ†Ø¨ÙŠÙ‡Ø§Øª Ù„Ø­Ø¸ÙŠØ© Ù…Ø¹ ØªÙØ§ØµÙŠÙ„ ÙƒØ§Ù…Ù„Ø© Ù„ÙƒÙ„ Ø­Ø¯Ø«.</span>
+          <span class="en">Real-time style backend notifications with full event details.</span>
+        </p>
+        <button class="outline-btn" id="mark-notifications-read" type="button">
+          <span class="lang-inline"><span class="ar">ØªØ­Ø¯ÙŠØ¯ Ø§Ù„ÙƒÙ„ ÙƒÙ…Ù‚Ø±ÙˆØ¡</span><span class="en">Mark All As Read</span></span>
+        </button>
+      </div>
+      <div class="ticket-list" id="admin-notification-list"></div>
+    </section>
+
+    <section class="section reveal" id="audit">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ø³Ø¬Ù„ Ø§Ù„ØªØ¯Ù‚ÙŠÙ‚</span><span class="en">Audit Log</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">Ø§Ø­Ø¯Ø§Ø« ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ ÙˆØ§Ù„ØªØºÙŠÙŠØ±Ø§Øª Ø§Ù„Ø­Ø³Ø§Ø¨ÙŠØ© ÙˆØªØ­Ø¯ÙŠØ«Ø§Øª Ø§Ù„Ø·Ù„Ø¨Ø§Øª.</span>
+          <span class="en">Login, account changes, and order/ticket updates.</span>
+        </p>
+        <button class="outline-btn" id="admin-audit-refresh" type="button">
+          <span class="lang-inline"><span class="ar">ØªØ­Ø¯ÙŠØ«</span><span class="en">Refresh</span></span>
+        </button>
+      </div>
+      <div class="ticket-list" id="admin-audit-list"></div>
+    </section>
+
+    <section class="section reveal" id="integrations" data-admin-only>
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ø§Ù„ØªÙƒØ§Ù…Ù„Ø§Øª Ø§Ù„Ø®Ø§Ø±Ø¬ÙŠØ©</span><span class="en">External Integrations</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">Ø­Ø§Ù„Ø© Ø§Ù„Ø§ØªØµØ§Ù„Ø§Øª Ø§Ù„Ø®Ø§Ø±Ø¬ÙŠØ© (Telegram Ùˆ n8n Ùˆ Slack Ùˆ Webhook) Ù…Ø¹ Ø§Ø®ØªØ¨Ø§Ø± Ø§Ù„Ø¥Ø±Ø³Ø§Ù„.</span>
+          <span class="en">Real external connections status (Telegram, n8n, Slack, Webhook) and delivery test.</span>
+        </p>
+      </div>
+      <div class="admin-card">
+        <p id="integration-status" class="muted">
+          <span class="lang-inline"><span class="ar">Ø¬Ø§Ø±Ù Ø§Ù„ØªØ­Ù…ÙŠÙ„...</span><span class="en">loading...</span></span>
+        </p>
+        <div class="order-actions">
+          <button id="integration-test-btn" class="primary-btn lang-inline" type="button"><span class="ar">ØªØ´ØºÙŠÙ„ Ø§Ø®ØªØ¨Ø§Ø± Ø§Ù„ØªÙƒØ§Ù…Ù„</span><span class="en">Run Integration Test</span></button>
+          <span id="integration-test-result" class="muted"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="storage" data-admin-only>
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ø­Ø§Ù„Ø© Ø§Ù„ØªØ®Ø²ÙŠÙ†</span><span class="en">Storage Health</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">Ø­Ø§Ù„Ø© Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§ØªØŒ Ø£Ù…Ø§Ù† Ø§Ù„Ù†Ø³Ø® Ø§Ù„Ø§Ø­ØªÙŠØ§Ø·ÙŠØŒ ÙˆØ¹Ø¯Ø¯ Ø§Ù„Ø³Ø¬Ù„Ø§Øª.</span>
+          <span class="en">Database status, backup safety, and record counts.</span>
+        </p>
+      </div>
+      <div class="admin-card">
+        <p id="storage-health-status" class="muted">
+          <span class="lang-inline"><span class="ar">Ø¬Ø§Ø±Ù ØªØ­Ù…ÙŠÙ„ Ø­Ø§Ù„Ø© Ø§Ù„ØªØ®Ø²ÙŠÙ†...</span><span class="en">Loading storage health...</span></span>
+        </p>
+        <div class="ai-mini-grid">
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">Ø§Ù„Ù…Ø­Ø±Ùƒ</span><span class="en">Driver</span></h3>
+            <p class="price" id="storage-driver">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">Ø§Ù„Ø­Ø¬Ù…</span><span class="en">Size</span></h3>
+            <p class="price" id="storage-size">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">Ø§Ù„Ù†Ø³Ø® Ø§Ù„Ø§Ø­ØªÙŠØ§Ø·ÙŠØ©</span><span class="en">Backups</span></h3>
+            <p class="price" id="storage-backup-state">-</p>
+          </div>
+        </div>
+        <div class="order-actions">
+          <button id="storage-refresh-btn" class="outline-btn lang-inline" type="button"><span class="ar">ØªØ­Ø¯ÙŠØ« Ø§Ù„Ø­Ø§Ù„Ø©</span><span class="en">Refresh Health</span></button>
+          <button id="storage-backup-btn" class="primary-btn lang-inline" type="button"><span class="ar">ØªØ´ØºÙŠÙ„ Ù†Ø³Ø®Ø© Ø§Ø­ØªÙŠØ§Ø·ÙŠØ© Ø§Ù„Ø¢Ù†</span><span class="en">Run Backup Now</span></button>
+          <span id="storage-backup-result" class="muted"></span>
+        </div>
+        <div id="storage-records" class="notification-details"></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="performance" data-admin-only>
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ù…Ø±Ø§Ù‚Ø¨ Ø§Ù„Ø£Ø¯Ø§Ø¡</span><span class="en">Performance Monitor</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">ØµØ­Ø© APIØŒ Ø²Ù…Ù† Ø§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø©ØŒ Ù…Ø¹Ø¯Ù„ Ø§Ù„Ù†Ø¬Ø§Ø­ØŒ ÙˆØ¢Ø®Ø± Ø§Ù„Ø¥Ø®ÙØ§Ù‚Ø§Øª.</span>
+          <span class="en">Live API health, latency, success rate, and recent failures.</span>
+        </p>
+      </div>
+      <div class="admin-card">
+        <p id="perf-status" class="muted">
+          <span class="lang-inline"><span class="ar">Ø¬Ø§Ø±Ù ØªØ­Ù…ÙŠÙ„ Ù…Ø¤Ø´Ø±Ø§Øª Ø§Ù„Ø£Ø¯Ø§Ø¡...</span><span class="en">Loading performance metrics...</span></span>
+        </p>
+        <div class="ai-mini-grid">
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">Ù†Ø¬Ø§Ø­ 5 Ø¯Ù‚Ø§Ø¦Ù‚</span><span class="en">5m Success</span></h3>
+            <p class="price" id="perf-success-5m">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">Ù…ØªÙˆØ³Ø· Ø²Ù…Ù† 5 Ø¯Ù‚Ø§Ø¦Ù‚</span><span class="en">5m Avg Latency</span></h3>
+            <p class="price" id="perf-latency-5m">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">P95 Ø³Ø§Ø¹Ø© ÙˆØ§Ø­Ø¯Ø©</span><span class="en">1h P95</span></h3>
+            <p class="price" id="perf-p95-1h">-</p>
+          </div>
+        </div>
+        <div class="order-actions">
+          <button id="perf-refresh-btn" class="outline-btn lang-inline" type="button"><span class="ar">ØªØ­Ø¯ÙŠØ« Ø§Ù„Ù…Ø¤Ø´Ø±Ø§Øª</span><span class="en">Refresh Metrics</span></button>
+          <span id="perf-samples" class="muted"></span>
+        </div>
+        <div id="perf-top-paths" class="notification-details"></div>
+        <div id="perf-recent-errors" class="notification-details"></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="ai-sync">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ù…Ø²Ø§Ù…Ù†Ø© Ø¹Ù…Ù„ÙŠØ§Øª AI</span><span class="en">AI Operations Sync</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">ØªØ­Ù„ÙŠÙ„ Ø¢Ù„ÙŠ Ù„Ù„Ù…Ø®Ø§Ø·Ø±ØŒ ØªÙˆØµÙŠØ§Øª ØªØ´ØºÙŠÙ„ØŒ ÙˆÙ…Ø±Ø§Ù‚Ø¨Ø© ØµØ­Ø© Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª.</span>
+          <span class="en">Automated risk analysis, recommendations, and operational health.</span>
+        </p>
+      </div>
+      <div class="admin-card">
+        <p id="admin-ai-status" class="muted">
+          <span class="lang-inline"><span class="ar">Ø¬Ø§Ø±Ù ØªØ­Ù…ÙŠÙ„ Ø­Ø§Ù„Ø© AI...</span><span class="en">Loading AI status...</span></span>
+        </p>
+        <div class="ai-mini-grid">
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">Ø§Ù„ØµØ­Ø©</span><span class="en">Health</span></h3>
+            <p class="price" id="admin-ai-health-score">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">Ø·Ù„Ø¨Ø§Øª Ù…Ø¹Ù„Ù‚Ø©</span><span class="en">Pending Orders</span></h3>
+            <p class="price" id="admin-ai-pending-orders">-</p>
+          </div>
+          <div class="metric-card">
+            <h3 class="lang-inline"><span class="ar">ØªØ°Ø§ÙƒØ± Ù…ÙØªÙˆØ­Ø©</span><span class="en">Open Tickets</span></h3>
+            <p class="price" id="admin-ai-open-tickets">-</p>
+          </div>
+        </div>
+        <div class="order-actions">
+          <button id="admin-ai-refresh-btn" class="outline-btn lang-inline" type="button"><span class="ar">ØªØ­Ø¯ÙŠØ« Ø§Ù„ØªØ­Ù„ÙŠÙ„Ø§Øª</span><span class="en">Refresh Insights</span></button>
+          <button id="admin-ai-sync-btn" class="primary-btn lang-inline" type="button" data-admin-only><span class="ar">ØªØ´ØºÙŠÙ„ Ù…Ø²Ø§Ù…Ù†Ø© AI Ø§Ù„Ø¢Ù†</span><span class="en">Run AI Sync Now</span></button>
+          <span id="admin-ai-sync-result" class="muted"></span>
+        </div>
+        <ul id="admin-ai-recommendations" class="ai-list"></ul>
+      </div>
+      <div class="admin-card">
+        <h3 class="lang-inline"><span class="ar">Ù…Ø³Ø§Ø¹Ø¯ AI (n8n)</span><span class="en">AI Assistant (n8n)</span></h3>
+        <div class="chat-window" id="admin-ai-chat-window">
+          <div class="chat-message agent">
+            <p class="lang-block">
+              <span class="ar">Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯ Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠ Ø¬Ø§Ù‡Ø². Ø§Ø³Ø£Ù„ Ø¹Ù† Ø§Ù„Ù…Ø®Ø§Ø·Ø± Ø£Ùˆ Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª Ø£Ùˆ Ù…Ø´ÙƒÙ„Ø§Øª Ø§Ù„Ø¯ÙØ¹.</span>
+              <span class="en">Operations assistant ready. Ask for risk summary, backlog actions, or payment anomalies.</span>
+            </p>
+            <span class="lang-inline"><span class="ar">Ø¹Ù…Ù„ÙŠØ§Øª AI</span><span class="en">AI Ops</span></span>
+          </div>
+        </div>
+        <form class="chat-input" id="admin-ai-chat-form">
+          <input id="admin-ai-chat-text" type="text" placeholder="Ø§Ø³Ø£Ù„ AI Ø¹Ù† Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª / Ask AI about operations" required />
+          <button class="primary-btn lang-inline" type="submit"><span class="ar">Ø¥Ø±Ø³Ø§Ù„</span><span class="en">Send</span></button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section reveal" id="orders">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ø·Ù„Ø¨Ø§Øª Ø´Ø­Ù† Ø§Ù„Ø£Ù„Ø¹Ø§Ø¨</span><span class="en">Game Top-Up Orders</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">Ø§Ø¹ØªÙ…Ø§Ø¯ Ø£Ùˆ Ø±ÙØ¶ Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ø´Ø­Ù† Ø¨Ø¹Ø¯ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø¯ÙØ¹.</span>
+          <span class="en">Approve or reject recharge requests after payment verification.</span>
+        </p>
+      </div>
+      <div class="metric-grid">
+        <div class="metric-card access-kpi access-kpi-pending">
+          <h3 class="lang-inline"><span class="ar">Ø·Ù„Ø¨Ø§Øª Ù…Ø¹Ù„Ù‚Ø©</span><span class="en">Pending Orders</span></h3>
+          <p class="price" id="admin-order-pending">0</p>
+        </div>
+        <div class="metric-card access-kpi access-kpi-approved">
+          <h3 class="lang-inline"><span class="ar">Ø·Ù„Ø¨Ø§Øª Ù…Ø¹ØªÙ…Ø¯Ø©</span><span class="en">Approved Orders</span></h3>
+          <p class="price" id="admin-order-approved">0</p>
+        </div>
+        <div class="metric-card access-kpi access-kpi-rejected">
+          <h3 class="lang-inline"><span class="ar">Ø·Ù„Ø¨Ø§Øª Ù…Ø±ÙÙˆØ¶Ø©</span><span class="en">Rejected Orders</span></h3>
+          <p class="price" id="admin-order-rejected">0</p>
+        </div>
+      </div>
+      <div class="ticket-list" id="admin-order-list"></div>
+    </section>
+
+    <section class="section reveal" id="payments">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ø§Ù„Ù…Ø¯ÙÙˆØ¹Ø§Øª Ø§Ù„Ø£ÙˆÙ†Ù„Ø§ÙŠÙ†</span><span class="en">Online Payments</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">Ù…ØªØ§Ø¨Ø¹Ø© Ø­Ø§Ù„Ø§Øª Ù…Ø¹Ø§Ù…Ù„Ø§Øª Ø§Ù„Ø¯ÙØ¹ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ© ÙˆØ±Ø¨Ø·Ù‡Ø§ Ø¨Ø§Ù„Ø·Ù„Ø¨Ø§Øª.</span>
+          <span class="en">Track online payment status and their linked orders.</span>
+        </p>
+        <button class="outline-btn" id="admin-payments-refresh" type="button">
+          <span class="lang-inline"><span class="ar">ØªØ­Ø¯ÙŠØ«</span><span class="en">Refresh</span></span>
+        </button>
+      </div>
+      <div class="ticket-list" id="admin-payment-list"></div>
+    </section>
+
+    <section class="section reveal" id="payment-receipts">
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ø¥ÙŠØµØ§Ù„Ø§Øª Ø§Ù„Ø¯ÙØ¹</span><span class="en">Payment Receipts</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">Ø¬Ù…ÙŠØ¹ Ø¥Ø«Ø¨Ø§ØªØ§Øª Ø§Ù„Ø¯ÙØ¹ Ø§Ù„Ù…Ø±Ø³Ù„Ø© Ù…Ù† Ù†Ù…Ø§Ø°Ø¬ Ø§Ù„Ø¯ÙØ¹ ÙˆØ·Ù„Ø¨Ø§Øª Ø§Ù„Ù…Ø­Ø§ÙØ¸.</span>
+          <span class="en">All payment proofs submitted from payment forms and wallet requests.</span>
+        </p>
+      </div>
+      <div class="ticket-list" id="admin-receipt-list"></div>
+    </section>
+
+    <section class="section reveal" id="users" data-admin-only>
+      <div class="section-title">
+        <h2 class="lang-inline"><span class="ar">Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙˆÙ†</span><span class="en">Users</span></h2>
+        <p class="muted lang-block">
+          <span class="ar">Ù†Ø¸Ø±Ø© Ø³Ø±ÙŠØ¹Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø­Ø³Ø§Ø¨Ø§Øª.</span>
+          <span class="en">Quick account overview.</span>
+        </p>
+      </div>
+      <div class="admin-card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="lang-inline"><span class="ar">Ø§Ù„Ø§Ø³Ù…</span><span class="en">Name</span></th>
+              <th class="lang-inline"><span class="ar">Ø§Ù„Ø®Ø·Ø©</span><span class="en">Plan</span></th>
+              <th class="lang-inline"><span class="ar">Ø§Ù„Ø­Ø§Ù„Ø©</span><span class="en">Status</span></th>
+              <th class="lang-inline"><span class="ar">Ø§Ù„Ø¯Ø¹Ù…</span><span class="en">Support</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="lang-inline"><span class="ar">Ù…Ù‡Ø§ Ø¹Ù„ÙŠ</span><span class="en">Maha Ali</span></td>
+              <td class="lang-inline"><span class="ar">Ø¨Ø±Ùˆ</span><span class="en">Pro</span></td>
+              <td class="lang-inline"><span class="ar">Ù†Ø´Ø·</span><span class="en">Active</span></td>
+              <td class="lang-inline"><span class="ar">ØªØ°ÙƒØ±Ø© Ù…ÙØªÙˆØ­Ø©</span><span class="en">Open ticket</span></td>
+            </tr>
+            <tr>
+              <td class="lang-inline"><span class="ar">Ø¹Ù…Ø± Ù†.</span><span class="en">Omar N.</span></td>
+              <td class="lang-inline"><span class="ar">Ø£Ø³Ø§Ø³ÙŠØ©</span><span class="en">Starter</span></td>
+              <td class="lang-inline"><span class="ar">Ù†Ø´Ø·</span><span class="en">Active</span></td>
+              <td class="lang-inline"><span class="ar">Ù„Ø§ ÙŠÙˆØ¬Ø¯</span><span class="en">None</span></td>
+            </tr>
+            <tr>
+              <td class="lang-inline"><span class="ar">Ø±Ù†Ø§ Ù.</span><span class="en">Rana F.</span></td>
+              <td class="lang-inline"><span class="ar">Ù…Ø¤Ø³Ø³Ø§Øª</span><span class="en">Enterprise</span></td>
+              <td class="lang-inline"><span class="ar">Ù…ØªØ§Ø¨Ø¹Ø©</span><span class="en">Follow-up</span></td>
+              <td class="lang-inline"><span class="ar">Ù…Ø¬Ø¯ÙˆÙ„</span><span class="en">Scheduled</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="modal" id="proof-modal" aria-hidden="true">
+      <div class="modal-card proof-modal-card">
+        <div class="order-actions">
+          <button id="proof-modal-close" class="ghost-btn lang-inline" type="button"><span class="ar">Ø¥ØºÙ„Ø§Ù‚</span><span class="en">Close</span></button>
+        </div>
+        <img id="proof-modal-image" class="proof-modal-image" alt="Payment proof preview" />
+      </div>
+    </div>
+    <script defer src="assets/vendor/notyf.min.js"></script>
+    <script defer src="assets/vendor/lucide.js"></script>
+    <script defer src="app.js"></script>
+  </body>
+</html>
+
+
