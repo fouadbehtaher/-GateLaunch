@@ -1,5 +1,7 @@
 param(
-  [string]$BaseUrl = "http://localhost:3000"
+  [string]$BaseUrl = "http://localhost:3000",
+  [string]$Email = $env:ADMIN_BOOTSTRAP_EMAIL,
+  [string]$Password = $env:ADMIN_BOOTSTRAP_PASSWORD
 )
 
 $ErrorActionPreference = "Stop"
@@ -24,16 +26,16 @@ function JsonGet($url, $webSession) {
 
 $session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
 
-Step "Login with demo admin"
+Step "Login with bootstrap admin"
 $login = JsonPost "$BaseUrl/api/login" @{
-  email = "admin.demo@university.edu"
-  password = "***REMOVED***"
+  email = $Email
+  password = $Password
 } $session
 Assert ($null -ne $login.user) "Login response missing user"
 
 Step "Read /api/me"
 $me = JsonGet "$BaseUrl/api/me" $session
-Assert ($me.user.email -eq "admin.demo@university.edu") "Unexpected user from /api/me"
+Assert ($me.user.email -eq $Email) "Unexpected user from /api/me"
 
 Step "Read AI status/insights"
 $aiStatus = JsonGet "$BaseUrl/api/ai/status" $session
