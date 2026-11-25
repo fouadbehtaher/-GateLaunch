@@ -766,8 +766,11 @@ const ensureBootstrapAdmin = () => {
 ensureBootstrapAdmin();
 
 const ensureDemoUsers = () => {
-  const defaultDemoSeed = process.env.NODE_ENV === "production" ? "false" : "true";
-  const enabled = String(process.env.DEMO_SEED_USERS || defaultDemoSeed).toLowerCase() !== "false";
+  // Demo accounts have fixed, publicly visible credentials. They are created
+  // only when DEMO_SEED_USERS is explicitly set to "true", and never in production.
+  const enabled =
+    String(process.env.DEMO_SEED_USERS || "").toLowerCase() === "true" &&
+    process.env.NODE_ENV !== "production";
   if (!enabled) return;
   const data = readData();
   const seeds = [
