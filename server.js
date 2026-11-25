@@ -765,67 +765,6 @@ const ensureBootstrapAdmin = () => {
 };
 ensureBootstrapAdmin();
 
-const ensureDemoUsers = () => {
-  // Demo accounts have fixed, publicly visible credentials. They are created
-  // only when DEMO_SEED_USERS is explicitly set to "true", and never in production.
-  const enabled =
-    String(process.env.DEMO_SEED_USERS || "").toLowerCase() === "true" &&
-    process.env.NODE_ENV !== "production";
-  if (!enabled) return;
-  const data = readData();
-  const seeds = [
-    {
-      email: "admin.demo@university.edu",
-      name: "Demo Admin",
-      role: "admin",
-      password: "***REMOVED***",
-    },
-    {
-      email: "supervisor.demo@university.edu",
-      name: "Demo Supervisor",
-      role: "supervisor",
-      password: "***REMOVED***",
-    },
-    {
-      email: "user.demo@university.edu",
-      name: "Demo User",
-      role: "user",
-      password: "***REMOVED***",
-    },
-  ];
-
-  let changed = false;
-  seeds.forEach((seed) => {
-    const email = normalizeEmail(seed.email);
-    let user = data.users.find((u) => u.email === email);
-    if (!user) {
-      user = {
-        id: crypto.randomUUID(),
-        name: seed.name,
-        email,
-        role: seed.role,
-        passwordHash: hashPassword(seed.password),
-        createdAt: new Date().toISOString(),
-      };
-      data.users.push(user);
-      changed = true;
-      return;
-    }
-    const nextRole = normalizeRole(user.role || seed.role);
-    if (user.role !== nextRole) {
-      user.role = nextRole;
-      changed = true;
-    }
-    if (!user.passwordHash) {
-      user.passwordHash = hashPassword(seed.password);
-      changed = true;
-    }
-  });
-
-  if (changed) writeData(data);
-};
-ensureDemoUsers();
-
 app.post("/api/public/assistant", async (req, res) => {
   const message = sanitizeText(req.body?.message, 800);
   const scope = String(req.body?.scope || "landing").trim().toLowerCase();
