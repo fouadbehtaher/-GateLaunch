@@ -3,8 +3,7 @@
 ## 1) Login & Session
 1. Open `http://localhost:3000/index.html`
 2. Login with:
-   - Email: `admin.demo@university.edu`
-   - Password: `***REMOVED***`
+   - Email and password: the bootstrap admin from your own `.env` (`ADMIN_BOOTSTRAP_EMAIL`, `ADMIN_BOOTSTRAP_PASSWORD`)
 3. Confirm redirect to `dashboard.html`
 4. Refresh page and confirm session remains active
 5. Open `admin.html` and confirm page loads (admin access)
