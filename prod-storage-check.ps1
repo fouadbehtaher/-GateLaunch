@@ -1,7 +1,7 @@
 param(
   [string]$BaseUrl = "http://localhost:3000",
-  [string]$Email = "admin.demo@university.edu",
-  [string]$Password = "***REMOVED***"
+  [string]$Email = $env:ADMIN_BOOTSTRAP_EMAIL,
+  [string]$Password = $env:ADMIN_BOOTSTRAP_PASSWORD
 )
 
 $ErrorActionPreference = "Stop"
