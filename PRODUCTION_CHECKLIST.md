@@ -27,7 +27,6 @@ npm run check
   - `STORAGE_BACKUP_DIR=storage/backups`
   - `ADMIN_BOOTSTRAP_EMAIL=<secure-admin-email>`
   - `ADMIN_BOOTSTRAP_PASSWORD=<strong-password>`
-  - `DEMO_SEED_USERS=false` (set `true` only for demo/testing)
 - Optional additional origins:
   - `ALLOWED_ORIGINS=https://your-domain.com,https://www.your-domain.com`
 
@@ -50,7 +49,6 @@ pm2 startup
 - Route external traffic to internal `http://localhost:3000`.
 
 ## 6. Security Hardening
-- Keep `DEMO_SEED_USERS=false` in real production.
 - Use strong bootstrap admin credentials and rotate periodically.
 - Restrict server firewall rules to required ports only.
 - Keep OS and dependencies patched.
